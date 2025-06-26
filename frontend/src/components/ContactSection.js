@@ -78,7 +78,7 @@ const ContactSection = () => {
     },
     {
       icon: <PersonStanding className="w-6 h-6" />,
-      label: "Cloud Engineer / Business Dev",
+      label: "Engineer/Business Development Lead",
       value: "Leon Williams",
     },
     {
@@ -126,132 +126,134 @@ const ContactSection = () => {
           </p>
         </motion.div>
 
+        
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Start Your Project
-              </h3>
-              <p className="text-gray-300">
-                Fill out the form below and we'll get back to you within 24 hours.
-              </p>
-            </div>
+          <div className="hidden">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  Start Your Project
+                </h3>
+                <p className="text-gray-300">
+                  Fill out the form below and we'll get back to you within 24 hours.
+                </p>
+              </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className={`w-full px-4 py-3 bg-gray-800/50 backdrop-blur-sm border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-all duration-300 ${
+                        errors.name 
+                          ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' 
+                          : 'border-gray-600 focus:border-cyan-400 focus:ring-cyan-400/20'
+                      }`}
+                      placeholder="John Doe"
+                    />
+                    {errors.name && (
+                      <p className="mt-1 text-sm text-red-400">{errors.name}</p>
+                    )}
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className={`w-full px-4 py-3 bg-gray-800/50 backdrop-blur-sm border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-all duration-300 ${
+                        errors.email 
+                          ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' 
+                          : 'border-gray-600 focus:border-cyan-400 focus:ring-cyan-400/20'
+                      }`}
+                      placeholder="john@company.com"
+                    />
+                    {errors.email && (
+                      <p className="mt-1 text-sm text-red-400">{errors.email}</p>
+                    )}
+                  </div>
+                </div>
+
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                    Full Name *
+                  <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
+                    Company Name
                   </label>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
+                    id="company"
+                    name="company"
+                    value={formData.company}
                     onChange={handleChange}
-                    required
-                    className={`w-full px-4 py-3 bg-gray-800/50 backdrop-blur-sm border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-all duration-300 ${
-                      errors.name 
-                        ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' 
-                        : 'border-gray-600 focus:border-cyan-400 focus:ring-cyan-400/20'
-                    }`}
-                    placeholder="John Doe"
+                    className="w-full px-4 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
+                    placeholder="Your Company"
                   />
-                  {errors.name && (
-                    <p className="mt-1 text-sm text-red-400">{errors.name}</p>
-                  )}
                 </div>
+
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                    Email Address *
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                    Project Details *
                   </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
                     onChange={handleChange}
                     required
-                    className={`w-full px-4 py-3 bg-gray-800/50 backdrop-blur-sm border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-all duration-300 ${
-                      errors.email 
+                    rows={6}
+                    className={`w-full px-4 py-3 bg-gray-800/50 backdrop-blur-sm border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-all duration-300 resize-none ${
+                      errors.message 
                         ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' 
                         : 'border-gray-600 focus:border-cyan-400 focus:ring-cyan-400/20'
                     }`}
-                    placeholder="john@company.com"
+                    placeholder="Tell us about your project, goals, and timeline..."
                   />
-                  {errors.email && (
-                    <p className="mt-1 text-sm text-red-400">{errors.email}</p>
+                  {errors.message && (
+                    <p className="mt-1 text-sm text-red-400">{errors.message}</p>
                   )}
                 </div>
-              </div>
 
-              <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
-                  Company Name
-                </label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
-                  placeholder="Your Company"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                  Project Details *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
-                  className={`w-full px-4 py-3 bg-gray-800/50 backdrop-blur-sm border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-all duration-300 resize-none ${
-                    errors.message 
-                      ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' 
-                      : 'border-gray-600 focus:border-cyan-400 focus:ring-cyan-400/20'
-                  }`}
-                  placeholder="Tell us about your project, goals, and timeline..."
-                />
-                {errors.message && (
-                  <p className="mt-1 text-sm text-red-400">{errors.message}</p>
-                )}
-              </div>
-
-              <motion.button
-                type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-cyan-500/25 flex items-center justify-center space-x-2"
-                disabled={isSubmitted}
-              >
-                {isSubmitted ? (
-                  <>
-                    <Check className="w-5 h-5" />
-                    <span>Message Sent!</span>
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-5 h-5" />
-                    <span>Send Message</span>
-                  </>
-                )}
-              </motion.button>
-            </form>
-          </motion.div>
-
+                <motion.button
+                  type="submit"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-cyan-500/25 flex items-center justify-center space-x-2"
+                  disabled={isSubmitted}
+                >
+                  {isSubmitted ? (
+                    <>
+                      <Check className="w-5 h-5" />
+                      <span>Message Sent!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5" />
+                      <span>Send Message</span>
+                    </>
+                  )}
+                </motion.button>
+              </form>
+            </motion.div>
+          </div>
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -320,6 +322,8 @@ const ContactSection = () => {
             </div>
           </motion.div>
         </div>
+      
+      
       </div>
     </section>
   );

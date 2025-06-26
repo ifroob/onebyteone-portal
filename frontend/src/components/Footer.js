@@ -38,7 +38,7 @@ const Footer = () => {
     { icon: <Github className="w-5 h-5" />, href: 'https://github.com/onebyteone', label: 'GitHub' },
     { icon: <Linkedin className="w-5 h-5" />, href: 'https://linkedin.com/company/onebyteone', label: 'LinkedIn' },
     { icon: <Twitter className="w-5 h-5" />, href: 'https://twitter.com/onebyteone', label: 'Twitter' },
-    { icon: <Mail className="w-5 h-5" />, href: 'mailto:contact@onebyteone.com', label: 'Email' }
+    { icon: <Mail className="w-5 h-5" />, href: 'mailto:9brian.ta5@gmail.com', label: 'Email' }
   ];
 
   return (
@@ -55,7 +55,7 @@ const Footer = () => {
               viewport={{ once: true }}
             >
               <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4">
-                onebyteone
+                OneByteOne
               </h3>
               <p className="text-gray-300 leading-relaxed max-w-md">
                 Helping people and businesses with software solutions one byte at a time. 
@@ -157,7 +157,7 @@ const Footer = () => {
               viewport={{ once: true }}
               className="text-gray-400 text-sm"
             >
-              © 2025 onebyteone. All rights reserved. Made with ❤️ for the future of software.
+              © 2025 OneByteOne. All rights reserved. Made with ❤️ for the future of software.
             </motion.div>
 
             {/* Back to Top Button */}
