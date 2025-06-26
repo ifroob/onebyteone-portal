@@ -8,20 +8,20 @@ const ProjectsSection = () => {
       id: 1,
       title: "Scalable CRM System",
       description: "A comprehensive customer relationship management system built with modern web technologies. Features include customer tracking, sales pipeline management, and advanced analytics.",
-      image: "https://images.pexels.com/photos/5475750/pexels-photo-5475750.jpeg",
-      technologies: ["React", "Node.js", "MongoDB", "Express"],
+      image: "https://brianawsbucket12.s3.us-east-1.amazonaws.com/proj1.PNG",
+      technologies: ["React", "Node.js", "MongoDB", "Python, FastAPI"],
       features: ["Customer Management", "Sales Pipeline", "Analytics Dashboard", "Real-time Updates"],
       icon: <Database className="w-8 h-8" />,
       gradient: "from-blue-500 to-cyan-500"
     },
     {
       id: 2,
-      title: "AI Health Application",
-      description: "An intelligent health monitoring application that uses AI to provide personalized health insights and recommendations based on user data and medical research.",
-      image: "https://images.pexels.com/photos/16053029/pexels-photo-16053029.jpeg",
-      technologies: ["React", "Next.js", "JavaScript", "AI/ML APIs"],
-      features: ["Health Monitoring", "AI Insights", "Personalized Recommendations", "Data Analytics"],
-      icon: <Brain className="w-8 h-8" />,
+      title: "BusiDocs",
+      description: "Helps businesses easily generate invoices, bid/proposal, contracts, customer agreement PDFs.",
+      image: "https://brianawsbucket12.s3.us-east-1.amazonaws.com/Proj2.PNG",
+      technologies: ["React", "Next.js", "JavaScript", "Python"],
+      features: ["Comprehensive document generation", "Customizable parameters", "Payments integration"],
+      icon: <Document className="w-8 h-8" />,
       gradient: "from-purple-500 to-pink-500"
     }
   ];
@@ -65,7 +65,7 @@ const ProjectsSection = () => {
             </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Discover our latest innovations in software development, from scalable CRM systems to AI-powered health applications.
+            Assisting clients with fast software products that can help their business.
           </p>
         </motion.div>
 
