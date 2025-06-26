@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Database, Brain, Zap, Users } from 'lucide-react';
+import { ExternalLink, Github, Database, Brain, Zap, Users, FileBadge } from 'lucide-react';
 
 const ProjectsSection = () => {
   const projects = [
@@ -21,7 +21,7 @@ const ProjectsSection = () => {
       image: "https://brianawsbucket12.s3.us-east-1.amazonaws.com/Proj2.PNG",
       technologies: ["React", "Next.js", "JavaScript", "Python"],
       features: ["Comprehensive document generation", "Customizable parameters", "Payments integration"],
-      icon: <Document className="w-8 h-8" />,
+      icon: <FileBadge className="w-8 h-8" />,
       gradient: "from-purple-500 to-pink-500"
     }
   ];

@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Cloud, Smartphone, Database, Zap, ArrowRight, CheckCircle } from 'lucide-react';
+import { Code, Cloud, Smartphone, Database, Zap, ArrowRight, CheckCircle, PhoneCall } from 'lucide-react';
 
 const ServicesSection = () => {
   const services = [
     {
       id: 1,
       title: "Custom Software Development",
-      description: "End-to-end software solutions tailored to your business needs. From concept to deployment, we build scalable applications that grow with your company.",
+      description: "Software solutions tailored to your business needs. From concept to deployment, we build applications that help with your company.",
       image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
       icon: <Code className="w-8 h-8" />,
       features: [
@@ -23,7 +23,7 @@ const ServicesSection = () => {
     },
     {
       id: 2,
-      title: "Cloud Consulting",
+      title: "Cloud Engineering / Integration",
       description: "Transform your infrastructure with expert cloud solutions. We help businesses migrate, optimize, and scale their operations in the cloud efficiently and securely.",
       image: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f",
       icon: <Cloud className="w-8 h-8" />,
@@ -35,7 +35,21 @@ const ServicesSection = () => {
         "Security & Compliance",
         "24/7 Monitoring & Support"
       ],
-      technologies: ["AWS", "Azure", "Docker", "Kubernetes", "Terraform", "CI/CD"],
+      technologies: ["AWS", "Docker", "Kubernetes", "Terraform", "CI/CD"],
+      gradient: "from-purple-500 to-pink-500"
+    },    
+    {
+      id: 3,
+      title: "General Consulting Services",
+      description: "Not sure yet? Book a consultation where we can figure out what you need.",
+      image: "",
+      icon: <PhoneCall className="w-8 h-8" />,
+      features: [
+        "Discovery call",
+        "Requirements gathering",
+        "Determine what is needed for your purposes"
+      ],
+      technologies: ["Microsoft Teams", "Zoom", "FaceTime", "Google Meets", "iMessage", "Email"],
       gradient: "from-purple-500 to-pink-500"
     }
   ];

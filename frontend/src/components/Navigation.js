@@ -38,7 +38,13 @@ const Navigation = () => {
             className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
             whileHover={{ scale: 1.05 }}
           >
-            onebyteone
+            <img 
+              src="https://brianawsbucket12.s3.us-east-1.amazonaws.com/obologo.png"
+              width="50" 
+              height="60"
+              float="left">
+            </img>
+              OneByteOne
           </motion.div>
 
           {/* Desktop Menu */}
