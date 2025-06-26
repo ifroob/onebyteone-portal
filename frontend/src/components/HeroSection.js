@@ -91,7 +91,7 @@ const HeroSection = () => {
             className="flex items-center justify-center space-x-2 text-cyan-400 text-sm font-medium tracking-wider uppercase"
           >
             <Code2 size={16} />
-            <span>Software Solutions</span>
+            <span></span>
             <Zap size={16} />
           </motion.div>
 
@@ -102,9 +102,9 @@ const HeroSection = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight"
           >
-            <span className="block text-white">Software Solutions</span>
+            <span className="block text-white"></span>
             <span className="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-              One Byte at a Time
+              OneByteOne
             </span>
           </motion.h1>
 
@@ -115,8 +115,7 @@ const HeroSection = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
           >
-            Helping people and businesses thrive with custom web applications, 
-            AI-powered solutions, and cloud consulting services.
+              We empower businesses and individuals with effective software!
           </motion.p>
 
           {/* CTA Buttons */}
