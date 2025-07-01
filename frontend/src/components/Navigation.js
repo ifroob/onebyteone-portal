@@ -32,23 +32,22 @@ const Navigation = () => {
       transition={{ duration: 0.6 }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex items-center py-4">
           {/* Logo */}
+          <img 
+            src="https://brianawsbucket12.s3.us-east-1.amazonaws.com/obologo.png"
+            width="50" 
+            height="60">
+          </img>
           <motion.div
             className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
             whileHover={{ scale: 1.05 }}
           >
-            <img 
-              src="https://brianawsbucket12.s3.us-east-1.amazonaws.com/obologo.png"
-              width="50" 
-              height="60"
-              float="left">
-            </img>
-              OneByteOne
+            OneByteOne
           </motion.div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-8" style={{marginLeft: "auto"}}>
             {['Home', 'Projects', 'Services', 'Contact'].map((item, index) => (
               <motion.button
                 key={item}
@@ -64,9 +63,11 @@ const Navigation = () => {
             ))}
           </div>
 
+
           {/* Mobile Menu Button */}
           <button
             className="md:hidden text-gray-300 hover:text-cyan-400"
+            style={{marginLeft: "auto"}}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
