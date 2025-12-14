@@ -59,12 +59,12 @@ const ProjectsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
             <span className="bg-gradient-to-r from-obo-primary to-obo-accent bg-clip-text text-transparent">
               Featured Projects
             </span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-gray-300 max-w-3xl mx-auto font-light">
             Assisting clients with fast software products that can help their business.
           </p>
         </motion.div>
@@ -124,23 +124,23 @@ const ProjectsSection = () => {
                 </div>
 
                 {/* Project Content */}
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-obo-accent transition-colors duration-300">
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-obo-accent transition-colors duration-300">
                     {project.title}
                   </h3>
                   
-                  <p className="text-gray-300 mb-6 leading-relaxed">
+                  <p className="text-gray-300 mb-5 leading-relaxed text-sm font-light">
                     {project.description}
                   </p>
 
                   {/* Technologies */}
-                  <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-obo-primary mb-3 uppercase tracking-wider">Technologies</h4>
-                    <div className="flex flex-wrap gap-2">
+                  <div className="mb-5">
+                    <h4 className="text-xs font-medium text-obo-primary mb-2 uppercase tracking-wider">Technologies</h4>
+                    <div className="flex flex-wrap gap-1.5">
                       {project.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-3 py-1 bg-obo-secondary/30 rounded-full text-sm text-gray-300 border border-obo-secondary/50"
+                          className="px-2.5 py-0.5 bg-obo-secondary/30 rounded-full text-xs text-gray-300 border border-obo-secondary/50"
                         >
                           {tech}
                         </span>
@@ -150,14 +150,14 @@ const ProjectsSection = () => {
 
                   {/* Features */}
                   <div>
-                    <h4 className="text-sm font-semibold text-obo-primary mb-3 uppercase tracking-wider">Key Features</h4>
-                    <div className="grid grid-cols-2 gap-2">
+                    <h4 className="text-xs font-medium text-obo-primary mb-2 uppercase tracking-wider">Key Features</h4>
+                    <div className="grid grid-cols-2 gap-1.5">
                       {project.features.map((feature, featureIndex) => (
                         <div
                           key={featureIndex}
-                          className="flex items-center space-x-2 text-sm text-gray-300"
+                          className="flex items-center space-x-1.5 text-xs text-gray-300"
                         >
-                          <Zap size={14} className="text-obo-accent flex-shrink-0" />
+                          <Zap size={12} className="text-obo-accent flex-shrink-0" />
                           <span>{feature}</span>
                         </div>
                       ))}
@@ -168,7 +168,7 @@ const ProjectsSection = () => {
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className={`mt-6 w-full py-3 bg-gradient-to-r ${project.gradient} text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300`}
+                    className={`mt-5 w-full py-2.5 bg-gradient-to-r ${project.gradient} text-white font-medium text-sm rounded-xl hover:shadow-lg transition-all duration-300`}
                     data-testid={`project-${project.id}-learn-more`}
                   >
                     Learn More
@@ -190,12 +190,12 @@ const ProjectsSection = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-transparent border-2 border-obo-primary text-obo-primary hover:bg-obo-primary hover:text-white font-semibold py-4 px-8 rounded-full transition-all duration-300"
+            className="bg-transparent border-2 border-obo-primary text-obo-primary hover:bg-obo-primary hover:text-white font-medium py-3 px-6 rounded-full transition-all duration-300 text-sm"
             data-testid="view-all-projects-button"
           >
             <span className="flex items-center space-x-2">
               <span>View All Projects</span>
-              <ExternalLink size={18} />
+              <ExternalLink size={16} />
             </span>
           </motion.button>
         </motion.div>

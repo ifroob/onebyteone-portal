@@ -112,12 +112,12 @@ const ContactSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
             <span className="bg-gradient-to-r from-obo-primary to-obo-accent bg-clip-text text-transparent">
               Get In Touch
             </span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-gray-300 max-w-3xl mx-auto font-light">
             Ready to transform your ideas into reality? Let's discuss your project and see how we can help your business grow.
           </p>
         </motion.div>
@@ -264,10 +264,10 @@ const ContactSection = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold text-white mb-4">
+              <h3 className="text-xl font-semibold text-white mb-3">
                 Contact Information
               </h3>
-              <p className="text-gray-300">
+              <p className="text-gray-300 text-sm font-light">
                 Prefer to reach out directly? Use any of the methods below.
               </p>
             </div>
@@ -288,8 +288,8 @@ const ContactSection = () => {
                     {item.icon}
                   </div>
                   <div>
-                    <div className="text-sm text-gray-400">{item.label}</div>
-                    <div className="text-white font-medium group-hover:text-obo-accent transition-colors duration-300">
+                    <div className="text-xs text-gray-400 font-light">{item.label}</div>
+                    <div className="text-white font-medium text-sm group-hover:text-obo-accent transition-colors duration-300">
                       {item.value}
                     </div>
                   </div>
@@ -299,26 +299,26 @@ const ContactSection = () => {
             </div>
 
             {/* Additional Info */}
-            <div className="mt-8 p-6 bg-gradient-to-r from-obo-primary/10 to-obo-accent/10 backdrop-blur-sm rounded-xl border border-obo-primary/20">
-              <h4 className="text-lg font-semibold text-white mb-3">
+            <div className="mt-8 p-5 bg-gradient-to-r from-obo-primary/10 to-obo-accent/10 backdrop-blur-sm rounded-xl border border-obo-primary/20">
+              <h4 className="text-base font-semibold text-white mb-3">
                 Why Choose onebyteone?
               </h4>
               <ul className="space-y-2 text-gray-300">
                 <li className="flex items-center space-x-2">
-                  <Check size={16} className="text-obo-accent" />
-                  <span>24/7 Support & Maintenance</span>
+                  <Check size={14} className="text-obo-accent flex-shrink-0" />
+                  <span className="text-sm font-light">24/7 Support & Maintenance</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <Check size={16} className="text-obo-accent" />
-                  <span>Agile Development Process</span>
+                  <Check size={14} className="text-obo-accent flex-shrink-0" />
+                  <span className="text-sm font-light">Agile Development Process</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <Check size={16} className="text-obo-accent" />
-                  <span>Transparent Communication</span>
+                  <Check size={14} className="text-obo-accent flex-shrink-0" />
+                  <span className="text-sm font-light">Transparent Communication</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <Check size={16} className="text-obo-accent" />
-                  <span>Scalable Solutions</span>
+                  <Check size={14} className="text-obo-accent flex-shrink-0" />
+                  <span className="text-sm font-light">Scalable Solutions</span>
                 </li>
               </ul>
             </div>

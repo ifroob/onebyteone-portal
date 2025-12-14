@@ -99,9 +99,9 @@ const ServicesSection = () => {
       {/* Section Header */}
       <div className="flex items-center gap-3 mb-6">
         <div className={`p-3 rounded-xl bg-gradient-to-r ${gradient} shadow-lg`}>
-          <Icon className="w-8 h-8 text-white" />
+          <Icon className="w-7 h-7 text-white" />
         </div>
-        <h3 className="text-3xl md:text-4xl font-bold text-white">{title}</h3>
+        <h3 className="text-3xl md:text-4xl font-semibold text-white">{title}</h3>
       </div>
 
       {/* Desktop Table View */}
@@ -110,16 +110,16 @@ const ServicesSection = () => {
           <table className="w-full">
             <thead>
               <tr className={`bg-gradient-to-r ${gradient}`}>
-                <th className="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">
+                <th className="px-5 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">
                   Product Name
                 </th>
-                <th className="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">
+                <th className="px-5 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">
                   Price
                 </th>
-                <th className="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">
+                <th className="px-5 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">
                   Core Value Proposition
                 </th>
-                <th className="px-6 py-4 text-center text-sm font-bold text-white uppercase tracking-wider">
+                <th className="px-5 py-3 text-center text-xs font-semibold text-white uppercase tracking-wider">
                   Action
                 </th>
               </tr>
@@ -135,28 +135,28 @@ const ServicesSection = () => {
                   className="hover:bg-slate-700/50 transition-colors duration-300"
                   data-testid={`service-row-${service.id}`}
                 >
-                  <td className="px-6 py-5">
-                    <div className="flex items-center gap-3">
-                      <span className="text-2xl">{service.icon}</span>
-                      <span className="font-semibold text-white">{service.name}</span>
+                  <td className="px-5 py-4">
+                    <div className="flex items-center gap-2.5">
+                      <span className="text-xl">{service.icon}</span>
+                      <span className="font-medium text-white text-sm">{service.name}</span>
                     </div>
                   </td>
-                  <td className="px-6 py-5">
-                    <span className="text-obo-accent font-bold whitespace-nowrap">{service.price}</span>
+                  <td className="px-5 py-4">
+                    <span className="text-obo-accent font-semibold whitespace-nowrap text-sm">{service.price}</span>
                   </td>
-                  <td className="px-6 py-5">
-                    <p className="text-slate-300 leading-relaxed">{service.value}</p>
+                  <td className="px-5 py-4">
+                    <p className="text-slate-300 leading-relaxed text-sm font-light">{service.value}</p>
                   </td>
-                  <td className="px-6 py-5 text-center">
+                  <td className="px-5 py-4 text-center">
                     <motion.a
                       href="#contact"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className={`inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r ${gradient} text-white font-semibold rounded-full text-sm transition-all duration-300 shadow-lg hover:shadow-xl`}
+                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r ${gradient} text-white font-medium rounded-full text-xs transition-all duration-300 shadow-lg hover:shadow-xl`}
                       data-testid={`service-cta-${service.id}`}
                     >
                       Get Started
-                      <ExternalLink size={14} />
+                      <ExternalLink size={12} />
                     </motion.a>
                   </td>
                 </motion.tr>
@@ -245,12 +245,12 @@ const ServicesSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4">
             <span className="bg-gradient-to-r from-obo-primary to-obo-accent bg-clip-text text-transparent">
               Our Services
             </span>
           </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto font-light">
             Whether you are launching your tech career or scaling your business, we have the right solution for you.
           </p>
         </motion.div>
@@ -279,22 +279,22 @@ const ServicesSection = () => {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <div className="bg-gradient-to-r from-obo-primary/10 to-obo-accent/10 rounded-2xl border border-obo-primary/30 p-8 md:p-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+          <div className="bg-gradient-to-r from-obo-primary/10 to-obo-accent/10 rounded-2xl border border-obo-primary/30 p-6 md:p-8">
+            <h3 className="text-xl md:text-2xl font-semibold text-white mb-3">
               Not Sure Which Service Is Right for You?
             </h3>
-            <p className="text-slate-300 text-lg mb-6 max-w-2xl mx-auto">
+            <p className="text-slate-300 text-sm md:text-base mb-5 max-w-2xl mx-auto font-light">
               Book a free Tech Clarity Session and let us help you find the perfect solution for your goals.
             </p>
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-obo-primary to-obo-accent text-white font-bold rounded-full text-lg transition-all duration-300 shadow-lg hover:shadow-2xl"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-obo-primary to-obo-accent text-white font-medium rounded-full text-sm transition-all duration-300 shadow-lg hover:shadow-2xl"
               data-testid="schedule-consultation-button"
             >
               Schedule Free Consultation
-              <ExternalLink size={20} />
+              <ExternalLink size={16} />
             </motion.a>
           </div>
         </motion.div>

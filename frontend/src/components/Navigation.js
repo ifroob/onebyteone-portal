@@ -41,7 +41,7 @@ const Navigation = () => {
             alt="OneByteOne Logo"
           />
           <motion.div
-            className="text-2xl font-bold bg-gradient-to-r from-obo-primary to-obo-accent bg-clip-text text-transparent"
+            className="text-xl font-semibold bg-gradient-to-r from-obo-primary to-obo-accent bg-clip-text text-transparent"
             whileHover={{ scale: 1.05 }}
           >
             OneByteOne
@@ -53,7 +53,7 @@ const Navigation = () => {
               <motion.button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="text-slate-300 hover:text-obo-accent transition-colors duration-300 font-medium"
+                className="text-slate-300 hover:text-obo-accent transition-colors duration-300 font-medium text-sm"
                 whileHover={{ scale: 1.1 }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -88,7 +88,7 @@ const Navigation = () => {
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="block w-full text-left py-2 text-slate-300 hover:text-obo-accent transition-colors duration-300"
+                className="block w-full text-left py-2 text-slate-300 hover:text-obo-accent transition-colors duration-300 text-sm"
                 data-testid={`mobile-nav-${item.toLowerCase()}`}
               >
                 {item}

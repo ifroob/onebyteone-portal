@@ -53,10 +53,10 @@ const Footer = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-obo-primary to-obo-accent bg-clip-text text-transparent mb-4">
+              <h3 className="text-xl font-semibold bg-gradient-to-r from-obo-primary to-obo-accent bg-clip-text text-transparent mb-3">
                 OneByteOne
               </h3>
-              <p className="text-gray-300 leading-relaxed max-w-md">
+              <p className="text-gray-300 leading-relaxed max-w-md text-sm font-light">
                 Helping people and businesses with software solutions one byte at a time. 
                 We transform ideas into scalable, innovative applications that drive success.
               </p>
@@ -70,18 +70,18 @@ const Footer = () => {
               viewport={{ once: true }}
               className="space-y-4"
             >
-              <h4 className="text-lg font-semibold text-white">Stay Updated</h4>
+              <h4 className="text-base font-semibold text-white">Stay Updated</h4>
               <div className="flex space-x-2">
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 px-4 py-2 bg-obo-darker/50 backdrop-blur-sm border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-obo-primary focus:ring-2 focus:ring-obo-primary/20 transition-all duration-300"
+                  className="flex-1 px-3 py-2 text-sm bg-obo-darker/50 backdrop-blur-sm border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-obo-primary focus:ring-2 focus:ring-obo-primary/20 transition-all duration-300"
                   data-testid="newsletter-email-input"
                 />
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 py-2 bg-gradient-to-r from-obo-primary to-obo-accent text-white font-medium rounded-lg hover:from-obo-accent hover:to-obo-primary transition-all duration-300"
+                  className="px-5 py-2 text-sm bg-gradient-to-r from-obo-primary to-obo-accent text-white font-medium rounded-lg hover:from-obo-accent hover:to-obo-primary transition-all duration-300"
                   data-testid="newsletter-subscribe-button"
                 >
                   Subscribe
@@ -97,7 +97,7 @@ const Footer = () => {
               viewport={{ once: true }}
               className="space-y-4"
             >
-              <h4 className="text-lg font-semibold text-white">Follow Us</h4>
+              <h4 className="text-base font-semibold text-white">Follow Us</h4>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
@@ -128,15 +128,15 @@ const Footer = () => {
               viewport={{ once: true }}
               className="space-y-4"
             >
-              <h4 className="text-lg font-semibold text-white capitalize">
+              <h4 className="text-base font-semibold text-white capitalize">
                 {category}
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-2.5">
                 {links.map((link, index) => (
                   <li key={index}>
                     <a
                       href={link.href}
-                      className="text-gray-300 hover:text-obo-accent transition-colors duration-300 hover:underline"
+                      className="text-gray-300 text-sm font-light hover:text-obo-accent transition-colors duration-300 hover:underline"
                       data-testid={`footer-link-${category}-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {link.name}
