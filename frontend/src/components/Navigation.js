@@ -25,7 +25,7 @@ const Navigation = () => {
   return (
     <motion.nav 
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-gray-900/95 backdrop-blur-md shadow-2xl' : 'bg-transparent'
+        isScrolled ? 'bg-slate-900/95 backdrop-blur-md shadow-2xl' : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -40,7 +40,7 @@ const Navigation = () => {
             height="60">
           </img>
           <motion.div
-            className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
+            className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-teal-500 bg-clip-text text-transparent"
             whileHover={{ scale: 1.05 }}
           >
             OneByteOne
@@ -48,11 +48,11 @@ const Navigation = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8" style={{marginLeft: "auto"}}>
-            {['Home', 'Projects', 'Services', 'Contact'].map((item, index) => (
+            {['Home', 'Quiz', 'Projects', 'Services', 'Contact'].map((item, index) => (
               <motion.button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 font-medium"
+                className="text-slate-300 hover:text-emerald-400 transition-colors duration-300 font-medium"
                 whileHover={{ scale: 1.1 }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -66,7 +66,7 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-gray-300 hover:text-cyan-400"
+            className="md:hidden text-slate-300 hover:text-emerald-400"
             style={{marginLeft: "auto"}}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -77,16 +77,16 @@ const Navigation = () => {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <motion.div
-            className="md:hidden py-4 border-t border-gray-700"
+            className="md:hidden py-4 border-t border-slate-700"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
           >
-            {['Home', 'Projects', 'Services', 'Contact'].map((item) => (
+            {['Home', 'Quiz', 'Projects', 'Services', 'Contact'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="block w-full text-left py-2 text-gray-300 hover:text-cyan-400 transition-colors duration-300"
+                className="block w-full text-left py-2 text-slate-300 hover:text-emerald-400 transition-colors duration-300"
               >
                 {item}
               </button>

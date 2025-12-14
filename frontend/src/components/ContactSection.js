@@ -72,16 +72,6 @@ const ContactSection = () => {
       value: "Brian Ta",
     },
     {
-      icon: <PersonStanding className="w-6 h-6" />,
-      label: "CEO",
-      value: "Daniel Ta",
-    },
-    {
-      icon: <PersonStanding className="w-6 h-6" />,
-      label: "Engineer/Business Development Lead",
-      value: "Leon Williams",
-    },
-    {
       icon: <Mail className="w-6 h-6" />,
       label: "Email",
       value: "9brian.ta5@gmail.com",
