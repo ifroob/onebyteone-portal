@@ -56,7 +56,7 @@ const Footer = () => {
               <h3 className="text-xl font-semibold bg-gradient-to-r from-obo-primary to-obo-accent bg-clip-text text-transparent mb-3">
                 OneByteOne
               </h3>
-              <p className="text-gray-300 leading-relaxed max-w-md text-sm font-light">
+              <p className="text-gray-100 leading-relaxed max-w-md text-sm font-normal tracking-tight">
                 Helping people and businesses with software solutions one byte at a time. 
                 We transform ideas into scalable, innovative applications that drive success.
               </p>
@@ -136,7 +136,7 @@ const Footer = () => {
                   <li key={index}>
                     <a
                       href={link.href}
-                      className="text-gray-300 text-sm font-light hover:text-obo-accent transition-colors duration-300 hover:underline"
+                      className="text-gray-100 text-sm font-normal hover:text-obo-accent transition-colors duration-300 hover:underline"
                       data-testid={`footer-link-${category}-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {link.name}

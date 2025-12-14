@@ -39,12 +39,14 @@ const QuizSelector = ({ onSelectQuiz }) => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-center mb-12"
+        className="text-center mb-16"
       >
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-          Choose Your Assessment
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
+          <span className="bg-gradient-to-r from-obo-primary to-obo-accent bg-clip-text text-transparent">
+            Choose Your Assessment
+          </span>
         </h2>
-        <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+        <p className="text-base md:text-lg text-gray-100 max-w-3xl mx-auto font-normal tracking-tight">
           Select the quiz that best matches your situation and discover your personalized tech path
         </p>
       </motion.div>

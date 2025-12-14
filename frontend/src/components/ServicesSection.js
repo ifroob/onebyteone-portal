@@ -145,7 +145,7 @@ const ServicesSection = () => {
                     <span className="text-obo-accent font-semibold whitespace-nowrap text-sm">{service.price}</span>
                   </td>
                   <td className="px-5 py-4">
-                    <p className="text-slate-300 leading-relaxed text-sm font-light">{service.value}</p>
+                    <p className="text-gray-100 leading-relaxed text-sm font-normal tracking-tight">{service.value}</p>
                   </td>
                   <td className="px-5 py-4 text-center">
                     <motion.a
@@ -215,7 +215,7 @@ const ServicesSection = () => {
                   <h5 className="text-xs font-semibold text-obo-primary uppercase tracking-wider mb-2">
                     Core Value Proposition
                   </h5>
-                  <p className="text-slate-300 text-sm leading-relaxed">{service.value}</p>
+                  <p className="text-gray-100 text-sm leading-relaxed tracking-tight">{service.value}</p>
                 </div>
                 <motion.a
                   href="#contact"
@@ -250,7 +250,7 @@ const ServicesSection = () => {
               Our Services
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto font-light">
+          <p className="text-lg md:text-xl text-gray-100 max-w-3xl mx-auto font-normal tracking-tight">
             Whether you are launching your tech career or scaling your business, we have the right solution for you.
           </p>
         </motion.div>
@@ -283,7 +283,7 @@ const ServicesSection = () => {
             <h3 className="text-xl md:text-2xl font-semibold text-white mb-3">
               Not Sure Which Service Is Right for You?
             </h3>
-            <p className="text-slate-300 text-sm md:text-base mb-5 max-w-2xl mx-auto font-light">
+            <p className="text-gray-100 text-sm md:text-base mb-5 max-w-2xl mx-auto font-normal tracking-tight">
               Book a free Tech Clarity Session and let us help you find the perfect solution for your goals.
             </p>
             <motion.a

@@ -163,6 +163,9 @@ const QuizResults = ({ result, onRetake }) => {
             <p className="text-white font-semibold text-base mb-4">
               {result.cta_message}
             </p>
+            <p className="text-gray-100 text-sm mb-5 max-w-lg mx-auto">
+              Message me your results and see if you'd like to explore this avenue further. Let's discuss how we can help you achieve your goals!
+            </p>
             <motion.button
               onClick={scrollToContact}
               className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-obo-primary to-obo-accent hover:from-obo-accent hover:to-obo-primary text-white font-bold rounded-full transition-all duration-300 shadow-lg shadow-obo-primary/25"

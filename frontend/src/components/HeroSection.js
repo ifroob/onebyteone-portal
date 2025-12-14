@@ -104,10 +104,12 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tighter"
           >
-            <span className="block bg-gradient-to-r from-obo-primary via-obo-accent to-obo-primary bg-clip-text text-transparent">
-              OneByteOne
+            <span className="block relative">
+              <span className="bg-gradient-to-r from-obo-primary via-obo-accent to-obo-primary bg-clip-text text-transparent animate-gradient bg-300% filter drop-shadow-[0_0_25px_rgba(7,155,185,0.5)]">
+                @One.Byte.One
+              </span>
             </span>
           </motion.h1>
 
@@ -119,14 +121,14 @@ const HeroSection = () => {
             className="max-w-4xl mx-auto space-y-4"
           >
             {/* Main Description */}
-            <p className="text-base md:text-lg text-gray-200 font-light leading-relaxed">
-              OneByteOne is a dual-focus technology firm dedicated to closing the gap between demand and capability.
+            <p className="text-base md:text-lg text-gray-50 font-normal leading-relaxed tracking-tight">
+              OneByteOne is a dual-focus technology firm dedicated to closing the gap between demand and capability based in Fort Worth, Texas.
             </p>
             
             {/* Mission Statement - Highlighted */}
             <div className="bg-gradient-to-r from-obo-primary/10 to-obo-accent/10 border-l-4 border-obo-primary rounded-r-lg p-3 backdrop-blur-sm">
-              <p className="text-sm md:text-base text-gray-100 font-light leading-relaxed">
-                <span className="text-obo-accent font-medium">Our Mission:</span> To democratize access to high-quality engineering expertise and transform careers by offering a practical, affordable, and results-driven path into the tech industry.
+              <p className="text-sm md:text-base text-white font-normal leading-relaxed tracking-tight">
+                <span className="text-obo-accent font-semibold">Our Mission:</span> To normalize access to high-quality engineering expertise and transform careers by offering a practical, affordable, and results-driven path into the tech industry.
               </p>
             </div>
             
@@ -136,8 +138,8 @@ const HeroSection = () => {
                 <div className="flex items-start space-x-2">
                   <Code2 size={18} className="text-obo-primary mt-0.5 flex-shrink-0" />
                   <div>
-                    <h3 className="text-obo-primary font-medium mb-1.5 text-base">Consulting</h3>
-                    <p className="text-gray-300 text-sm font-light leading-relaxed">
+                    <h3 className="text-obo-primary font-semibold mb-1.5 text-base tracking-tight">Consulting</h3>
+                    <p className="text-gray-100 text-sm font-normal leading-relaxed tracking-tight">
                       We deliver high-performance, custom engineering solutions that help businesses modernize and scale.
                     </p>
                   </div>
@@ -148,8 +150,8 @@ const HeroSection = () => {
                 <div className="flex items-start space-x-2">
                   <Zap size={18} className="text-obo-accent mt-0.5 flex-shrink-0" />
                   <div>
-                    <h3 className="text-obo-accent font-medium mb-1.5 text-base">Education</h3>
-                    <p className="text-gray-300 text-sm font-light leading-relaxed">
+                    <h3 className="text-obo-accent font-semibold mb-1.5 text-base tracking-tight">Education</h3>
+                    <p className="text-gray-100 text-sm font-normal leading-relaxed tracking-tight">
                       We offer alternative, project-based training to turn aspiring coders into interview-ready engineers.
                     </p>
                   </div>
@@ -159,7 +161,7 @@ const HeroSection = () => {
             
             {/* Tagline */}
             <div className="pt-1">
-              <p className="text-gray-400 text-sm md:text-base font-light italic">
+              <p className="text-gray-300 text-sm md:text-base font-normal italic tracking-tight">
                 We don't just write code; we build the ecosystem around it.
               </p>
             </div>

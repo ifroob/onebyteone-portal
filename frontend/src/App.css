@@ -10,10 +10,13 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'kern' 1, 'liga' 1;
+  letter-spacing: -0.015em;
   background-color: #0F1419;
   color: #ffffff;
   overflow-x: hidden;
@@ -21,6 +24,18 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+/* Enhanced text readability */
+.text-enhanced {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  letter-spacing: -0.02em;
+}
+
+/* Brighter text colors for better readability */
+.text-bright {
+  color: #f9fafb;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 /* Scrollbar Styling */
@@ -53,6 +68,23 @@ body {
 
 .float-animation {
   animation: float 6s ease-in-out infinite;
+}
+
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient 8s ease infinite;
+}
+
+.bg-300\% {
+  background-size: 300% 300%;
 }
 
 @keyframes pulse-glow {
@@ -172,11 +204,15 @@ a, button, input, textarea {
 /* High contrast mode support */
 @media (prefers-contrast: high) {
   .text-gray-300 {
-    color: #e5e7eb !important;
+    color: #f3f4f6 !important;
   }
   
   .text-gray-400 {
-    color: #d1d5db !important;
+    color: #e5e7eb !important;
+  }
+
+  .text-gray-200 {
+    color: #f9fafb !important;
   }
 }
 

@@ -53,7 +53,7 @@ const Navigation = () => {
               <motion.button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="text-slate-300 hover:text-obo-accent transition-colors duration-300 font-medium text-sm"
+                className="text-gray-100 hover:text-obo-accent transition-colors duration-300 font-medium text-sm tracking-tight"
                 whileHover={{ scale: 1.1 }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -67,7 +67,7 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-slate-300 hover:text-obo-accent"
+            className="md:hidden text-gray-100 hover:text-obo-accent"
             style={{marginLeft: "auto"}}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             data-testid="mobile-menu-button"
@@ -88,7 +88,7 @@ const Navigation = () => {
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="block w-full text-left py-2 text-slate-300 hover:text-obo-accent transition-colors duration-300 text-sm"
+                className="block w-full text-left py-2 text-gray-100 hover:text-obo-accent transition-colors duration-300 text-sm tracking-tight"
                 data-testid={`mobile-nav-${item.toLowerCase()}`}
               >
                 {item}

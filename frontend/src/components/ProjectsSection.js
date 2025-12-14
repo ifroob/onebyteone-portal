@@ -64,7 +64,7 @@ const ProjectsSection = () => {
               Featured Projects
             </span>
           </h2>
-          <p className="text-base md:text-lg text-gray-300 max-w-3xl mx-auto font-light">
+          <p className="text-base md:text-lg text-gray-100 max-w-3xl mx-auto font-normal tracking-tight">
             Assisting clients with fast software products that can help their business.
           </p>
         </motion.div>
@@ -129,7 +129,7 @@ const ProjectsSection = () => {
                     {project.title}
                   </h3>
                   
-                  <p className="text-gray-300 mb-5 leading-relaxed text-sm font-light">
+                  <p className="text-gray-100 mb-5 leading-relaxed text-sm font-normal tracking-tight">
                     {project.description}
                   </p>
 
@@ -140,7 +140,7 @@ const ProjectsSection = () => {
                       {project.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-2.5 py-0.5 bg-obo-secondary/30 rounded-full text-xs text-gray-300 border border-obo-secondary/50"
+                          className="px-2.5 py-0.5 bg-obo-secondary/30 rounded-full text-xs text-gray-100 border border-obo-secondary/50 font-medium"
                         >
                           {tech}
                         </span>
@@ -155,7 +155,7 @@ const ProjectsSection = () => {
                       {project.features.map((feature, featureIndex) => (
                         <div
                           key={featureIndex}
-                          className="flex items-center space-x-1.5 text-xs text-gray-300"
+                          className="flex items-center space-x-1.5 text-xs text-gray-100 font-medium"
                         >
                           <Zap size={12} className="text-obo-accent flex-shrink-0" />
                           <span>{feature}</span>

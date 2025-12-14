@@ -117,7 +117,7 @@ const ContactSection = () => {
               Get In Touch
             </span>
           </h2>
-          <p className="text-base md:text-lg text-gray-300 max-w-3xl mx-auto font-light">
+          <p className="text-base md:text-lg text-gray-100 max-w-3xl mx-auto font-normal tracking-tight">
             Ready to transform your ideas into reality? Let's discuss your project and see how we can help your business grow.
           </p>
         </motion.div>
@@ -263,11 +263,38 @@ const ContactSection = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
+            {/* Avatar Section */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center text-center pb-6 border-b border-slate-700/50"
+            >
+              <div className="relative mb-4">
+                <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-obo-primary/30 shadow-2xl shadow-obo-primary/20">
+                  <img
+                    src="https://via.placeholder.com/150"
+                    alt="Brian Ta - Founder"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-obo-primary to-obo-accent rounded-full p-2 shadow-lg">
+                  <PersonStanding className="w-5 h-5 text-white" />
+                </div>
+              </div>
+              <h4 className="text-xl font-bold text-white mb-1">Brian Ta</h4>
+              <p className="text-obo-accent font-semibold text-sm mb-2">Founder & CEO</p>
+              <p className="text-gray-300 text-sm max-w-sm">
+                Building the future of tech education and consulting, one byte at a time.
+              </p>
+            </motion.div>
+
             <div>
-              <h3 className="text-xl font-semibold text-white mb-3">
+              <h3 className="text-xl font-semibold text-white mb-3 tracking-tight">
                 Contact Information
               </h3>
-              <p className="text-gray-300 text-sm font-light">
+              <p className="text-gray-100 text-sm font-normal tracking-tight">
                 Prefer to reach out directly? Use any of the methods below.
               </p>
             </div>
@@ -303,22 +330,22 @@ const ContactSection = () => {
               <h4 className="text-base font-semibold text-white mb-3">
                 Why Choose onebyteone?
               </h4>
-              <ul className="space-y-2 text-gray-300">
+              <ul className="space-y-2 text-gray-100">
                 <li className="flex items-center space-x-2">
                   <Check size={14} className="text-obo-accent flex-shrink-0" />
-                  <span className="text-sm font-light">24/7 Support & Maintenance</span>
+                  <span className="text-sm font-normal">24/7 Support & Maintenance</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <Check size={14} className="text-obo-accent flex-shrink-0" />
-                  <span className="text-sm font-light">Agile Development Process</span>
+                  <span className="text-sm font-normal">Agile Development Process</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <Check size={14} className="text-obo-accent flex-shrink-0" />
-                  <span className="text-sm font-light">Transparent Communication</span>
+                  <span className="text-sm font-normal">Transparent Communication</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <Check size={14} className="text-obo-accent flex-shrink-0" />
-                  <span className="text-sm font-light">Scalable Solutions</span>
+                  <span className="text-sm font-normal">Scalable Solutions</span>
                 </li>
               </ul>
             </div>
