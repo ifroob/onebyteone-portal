@@ -95,7 +95,7 @@ const QuizResults = ({ result, onRetake }) => {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-6 md:p-8 border border-violet-500/30 shadow-2xl mb-8"
+        className="bg-gradient-to-br from-obo-darker to-obo-dark rounded-3xl p-6 md:p-8 border border-obo-primary/30 shadow-2xl mb-8"
       >
         {/* Trophy Icon */}
         <motion.div
@@ -104,7 +104,7 @@ const QuizResults = ({ result, onRetake }) => {
           transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
           className="flex justify-center mb-6"
         >
-          <div className="bg-gradient-to-r from-violet-500 to-cyan-500 p-4 rounded-full">
+          <div className="bg-gradient-to-r from-obo-primary to-obo-accent p-4 rounded-full">
             <Trophy className="w-12 h-12 text-white" />
           </div>
         </motion.div>
@@ -129,8 +129,8 @@ const QuizResults = ({ result, onRetake }) => {
           transition={{ delay: 0.4 }}
           className="text-center mb-6"
         >
-          <div className="inline-block px-6 py-3 bg-violet-500/20 border-2 border-violet-500 rounded-full">
-            <h3 className="text-2xl md:text-3xl font-bold text-violet-400">
+          <div className="inline-block px-6 py-3 bg-obo-primary/20 border-2 border-obo-primary rounded-full">
+            <h3 className="text-2xl md:text-3xl font-bold text-obo-accent">
               {result.result_category}
             </h3>
           </div>
@@ -155,17 +155,17 @@ const QuizResults = ({ result, onRetake }) => {
           transition={{ delay: 0.6 }}
           className="text-center mb-6"
         >
-          <div className="bg-gradient-to-r from-violet-500/10 to-cyan-500/10 rounded-xl p-6 border border-violet-500/30 mb-6">
+          <div className="bg-gradient-to-r from-obo-primary/10 to-obo-accent/10 rounded-xl p-6 border border-obo-primary/30 mb-6">
             <div className="flex items-center justify-center mb-3">
-              <Sparkles className="text-violet-400 mr-2" size={24} />
-              <h4 className="text-violet-400 font-bold text-lg">Your Next Step</h4>
+              <Sparkles className="text-obo-accent mr-2" size={24} />
+              <h4 className="text-obo-accent font-bold text-lg">Your Next Step</h4>
             </div>
             <p className="text-white font-semibold text-base mb-4">
               {result.cta_message}
             </p>
             <motion.button
               onClick={scrollToContact}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-violet-500 to-cyan-500 hover:from-violet-400 hover:to-cyan-400 text-white font-bold rounded-full transition-all duration-300 shadow-lg shadow-violet-500/25"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-obo-primary to-obo-accent hover:from-obo-accent hover:to-obo-primary text-white font-bold rounded-full transition-all duration-300 shadow-lg shadow-obo-primary/25"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               data-testid="book-consultation-button"
@@ -194,11 +194,11 @@ const QuizResults = ({ result, onRetake }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 + index * 0.1 }}
-              className="bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700 p-5 hover:border-violet-500/50 transition-all duration-300"
+              className="bg-obo-darker/50 backdrop-blur-sm rounded-xl border border-slate-700 p-5 hover:border-obo-primary/50 transition-all duration-300"
             >
               <div className="mb-3">
                 <h4 className="text-white font-semibold mb-1">{service.name}</h4>
-                <p className="text-cyan-400 font-bold text-lg">{service.price}</p>
+                <p className="text-obo-accent font-bold text-lg">{service.price}</p>
               </div>
               <p className="text-slate-400 text-sm mb-4 leading-relaxed">
                 {service.description}
@@ -209,7 +209,7 @@ const QuizResults = ({ result, onRetake }) => {
                   e.preventDefault();
                   scrollToContact();
                 }}
-                className="inline-flex items-center gap-2 text-violet-400 hover:text-violet-300 font-semibold text-sm transition-colors"
+                className="inline-flex items-center gap-2 text-obo-primary hover:text-obo-accent font-semibold text-sm transition-colors"
                 whileHover={{ x: 5 }}
               >
                 Learn More
@@ -229,7 +229,7 @@ const QuizResults = ({ result, onRetake }) => {
       >
         <button
           onClick={scrollToServices}
-          className="text-slate-400 hover:text-violet-400 transition-colors font-medium"
+          className="text-slate-400 hover:text-obo-accent transition-colors font-medium"
         >
           View All Academy & Consulting Services →
         </button>

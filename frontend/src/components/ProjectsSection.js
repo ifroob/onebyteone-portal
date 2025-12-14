@@ -12,7 +12,7 @@ const ProjectsSection = () => {
       technologies: ["React", "Node.js", "MongoDB", "Python, FastAPI"],
       features: ["Customer Management", "Sales Pipeline", "Analytics Dashboard", "Real-time Updates"],
       icon: <Database className="w-8 h-8" />,
-      gradient: "from-blue-500 to-cyan-500"
+      gradient: "from-obo-secondary to-obo-primary"
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ const ProjectsSection = () => {
       technologies: ["React", "Next.js", "JavaScript", "Python"],
       features: ["Comprehensive document generation", "Customizable parameters", "Payments integration"],
       icon: <FileBadge className="w-8 h-8" />,
-      gradient: "from-purple-500 to-pink-500"
+      gradient: "from-obo-primary to-obo-accent"
     }
   ];
 
@@ -49,7 +49,7 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+    <section id="projects" className="py-20 bg-gradient-to-br from-obo-dark via-obo-darker to-obo-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -60,7 +60,7 @@ const ProjectsSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-obo-primary to-obo-accent bg-clip-text text-transparent">
               Featured Projects
             </span>
           </h2>
@@ -84,7 +84,7 @@ const ProjectsSection = () => {
               className="group relative"
             >
               {/* Card Container */}
-              <div className="relative bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 hover:border-cyan-400/50 transition-all duration-500 shadow-2xl hover:shadow-cyan-500/10">
+              <div className="relative bg-obo-darker/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-slate-700/50 hover:border-obo-primary/50 transition-all duration-500 shadow-2xl hover:shadow-obo-primary/10">
                 
                 {/* Project Image */}
                 <div className="relative h-64 overflow-hidden">
@@ -108,6 +108,7 @@ const ProjectsSection = () => {
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors duration-300"
+                      data-testid={`project-${project.id}-external`}
                     >
                       <ExternalLink size={18} />
                     </motion.button>
@@ -115,6 +116,7 @@ const ProjectsSection = () => {
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors duration-300"
+                      data-testid={`project-${project.id}-github`}
                     >
                       <Github size={18} />
                     </motion.button>
@@ -123,7 +125,7 @@ const ProjectsSection = () => {
 
                 {/* Project Content */}
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors duration-300">
+                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-obo-accent transition-colors duration-300">
                     {project.title}
                   </h3>
                   
@@ -133,12 +135,12 @@ const ProjectsSection = () => {
 
                   {/* Technologies */}
                   <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-cyan-400 mb-3 uppercase tracking-wider">Technologies</h4>
+                    <h4 className="text-sm font-semibold text-obo-primary mb-3 uppercase tracking-wider">Technologies</h4>
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-300 border border-gray-600/50"
+                          className="px-3 py-1 bg-obo-secondary/30 rounded-full text-sm text-gray-300 border border-obo-secondary/50"
                         >
                           {tech}
                         </span>
@@ -148,14 +150,14 @@ const ProjectsSection = () => {
 
                   {/* Features */}
                   <div>
-                    <h4 className="text-sm font-semibold text-cyan-400 mb-3 uppercase tracking-wider">Key Features</h4>
+                    <h4 className="text-sm font-semibold text-obo-primary mb-3 uppercase tracking-wider">Key Features</h4>
                     <div className="grid grid-cols-2 gap-2">
                       {project.features.map((feature, featureIndex) => (
                         <div
                           key={featureIndex}
                           className="flex items-center space-x-2 text-sm text-gray-300"
                         >
-                          <Zap size={14} className="text-cyan-400 flex-shrink-0" />
+                          <Zap size={14} className="text-obo-accent flex-shrink-0" />
                           <span>{feature}</span>
                         </div>
                       ))}
@@ -167,6 +169,7 @@ const ProjectsSection = () => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     className={`mt-6 w-full py-3 bg-gradient-to-r ${project.gradient} text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300`}
+                    data-testid={`project-${project.id}-learn-more`}
                   >
                     Learn More
                   </motion.button>
@@ -187,7 +190,8 @@ const ProjectsSection = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-transparent border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-gray-900 font-semibold py-4 px-8 rounded-full transition-all duration-300"
+            className="bg-transparent border-2 border-obo-primary text-obo-primary hover:bg-obo-primary hover:text-white font-semibold py-4 px-8 rounded-full transition-all duration-300"
+            data-testid="view-all-projects-button"
           >
             <span className="flex items-center space-x-2">
               <span>View All Projects</span>

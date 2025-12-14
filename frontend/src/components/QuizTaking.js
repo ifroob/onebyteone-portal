@@ -56,7 +56,7 @@ const QuizTaking = ({ quiz, onComplete, onBack }) => {
       >
         <button
           onClick={onBack}
-          className="flex items-center text-slate-400 hover:text-violet-400 transition-colors mb-6"
+          className="flex items-center text-slate-400 hover:text-obo-accent transition-colors mb-6"
           data-testid="quiz-back-button"
         >
           <ChevronLeft size={20} />
@@ -77,7 +77,7 @@ const QuizTaking = ({ quiz, onComplete, onBack }) => {
         </div>
         <div className="w-full bg-slate-700 rounded-full h-2 overflow-hidden">
           <motion.div
-            className="h-full bg-gradient-to-r from-violet-500 to-cyan-500"
+            className="h-full bg-gradient-to-r from-obo-primary to-obo-accent"
             initial={{ width: 0 }}
             animate={{ width: `${progress}%` }}
             transition={{ duration: 0.3 }}
@@ -93,10 +93,10 @@ const QuizTaking = ({ quiz, onComplete, onBack }) => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -50 }}
           transition={{ duration: 0.3 }}
-          className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-slate-700 mb-8"
+          className="bg-obo-darker/50 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-slate-700 mb-8"
         >
           <div className="mb-2">
-            <span className="inline-block px-3 py-1 bg-violet-500/20 text-violet-400 rounded-full text-sm font-medium">
+            <span className="inline-block px-3 py-1 bg-obo-primary/20 text-obo-accent rounded-full text-sm font-medium">
               {question.category}
             </span>
           </div>
@@ -112,8 +112,8 @@ const QuizTaking = ({ quiz, onComplete, onBack }) => {
                 onClick={() => handleOptionSelect(index)}
                 className={`w-full p-4 md:p-5 rounded-xl text-left transition-all duration-300 border-2 ${
                   selectedOption === index
-                    ? 'bg-violet-500/20 border-violet-500 text-white'
-                    : 'bg-slate-700/30 border-slate-600 text-slate-300 hover:border-violet-500/50 hover:bg-slate-700/50'
+                    ? 'bg-obo-primary/20 border-obo-primary text-white'
+                    : 'bg-slate-700/30 border-slate-600 text-slate-300 hover:border-obo-primary/50 hover:bg-slate-700/50'
                 }`}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -122,7 +122,7 @@ const QuizTaking = ({ quiz, onComplete, onBack }) => {
                 <div className="flex items-start">
                   <div className={`flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center mr-3 mt-0.5 ${
                     selectedOption === index
-                      ? 'border-violet-500 bg-violet-500'
+                      ? 'border-obo-primary bg-obo-primary'
                       : 'border-slate-500'
                   }`}>
                     {selectedOption === index && (
@@ -161,7 +161,7 @@ const QuizTaking = ({ quiz, onComplete, onBack }) => {
           className={`flex items-center px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
             selectedOption === null
               ? 'bg-slate-700/30 text-slate-500 cursor-not-allowed'
-              : 'bg-gradient-to-r from-violet-500 to-cyan-500 text-white hover:from-violet-400 hover:to-cyan-400 shadow-lg'
+              : 'bg-gradient-to-r from-obo-primary to-obo-accent text-white hover:from-obo-accent hover:to-obo-primary shadow-lg'
           }`}
           whileHover={selectedOption !== null ? { scale: 1.05 } : {}}
           whileTap={selectedOption !== null ? { scale: 0.95 } : {}}

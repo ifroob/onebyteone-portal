@@ -92,7 +92,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+    <section id="contact" className="py-20 bg-gradient-to-br from-obo-dark via-obo-darker to-obo-dark relative overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -100,7 +100,7 @@ const ContactSection = () => {
           alt="Contact Background"
           className="w-full h-full object-cover opacity-10"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 to-gray-800/95"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-obo-dark/95 to-obo-darker/95"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -113,7 +113,7 @@ const ContactSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-obo-primary to-obo-accent bg-clip-text text-transparent">
               Get In Touch
             </span>
           </h2>
@@ -155,12 +155,13 @@ const ContactSection = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className={`w-full px-4 py-3 bg-gray-800/50 backdrop-blur-sm border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-all duration-300 ${
+                      className={`w-full px-4 py-3 bg-obo-darker/50 backdrop-blur-sm border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-all duration-300 ${
                         errors.name 
                           ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' 
-                          : 'border-gray-600 focus:border-cyan-400 focus:ring-cyan-400/20'
+                          : 'border-slate-600 focus:border-obo-primary focus:ring-obo-primary/20'
                       }`}
                       placeholder="John Doe"
+                      data-testid="contact-name-input"
                     />
                     {errors.name && (
                       <p className="mt-1 text-sm text-red-400">{errors.name}</p>
@@ -177,12 +178,13 @@ const ContactSection = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className={`w-full px-4 py-3 bg-gray-800/50 backdrop-blur-sm border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-all duration-300 ${
+                      className={`w-full px-4 py-3 bg-obo-darker/50 backdrop-blur-sm border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-all duration-300 ${
                         errors.email 
                           ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' 
-                          : 'border-gray-600 focus:border-cyan-400 focus:ring-cyan-400/20'
+                          : 'border-slate-600 focus:border-obo-primary focus:ring-obo-primary/20'
                       }`}
                       placeholder="john@company.com"
+                      data-testid="contact-email-input"
                     />
                     {errors.email && (
                       <p className="mt-1 text-sm text-red-400">{errors.email}</p>
@@ -200,8 +202,9 @@ const ContactSection = () => {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
+                    className="w-full px-4 py-3 bg-obo-darker/50 backdrop-blur-sm border border-slate-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-obo-primary focus:ring-2 focus:ring-obo-primary/20 transition-all duration-300"
                     placeholder="Your Company"
+                    data-testid="contact-company-input"
                   />
                 </div>
 
@@ -216,12 +219,13 @@ const ContactSection = () => {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className={`w-full px-4 py-3 bg-gray-800/50 backdrop-blur-sm border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-all duration-300 resize-none ${
+                    className={`w-full px-4 py-3 bg-obo-darker/50 backdrop-blur-sm border rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-all duration-300 resize-none ${
                       errors.message 
                         ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' 
-                        : 'border-gray-600 focus:border-cyan-400 focus:ring-cyan-400/20'
+                        : 'border-slate-600 focus:border-obo-primary focus:ring-obo-primary/20'
                     }`}
                     placeholder="Tell us about your project, goals, and timeline..."
+                    data-testid="contact-message-input"
                   />
                   {errors.message && (
                     <p className="mt-1 text-sm text-red-400">{errors.message}</p>
@@ -232,8 +236,9 @@ const ContactSection = () => {
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-cyan-500/25 flex items-center justify-center space-x-2"
+                  className="w-full bg-gradient-to-r from-obo-primary to-obo-accent hover:from-obo-accent hover:to-obo-primary text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-obo-primary/25 flex items-center justify-center space-x-2"
                   disabled={isSubmitted}
+                  data-testid="contact-submit-button"
                 >
                   {isSubmitted ? (
                     <>
@@ -276,14 +281,15 @@ const ContactSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="group flex items-center space-x-4 p-4 bg-gray-800/30 backdrop-blur-sm rounded-xl border border-gray-700/50 hover:border-cyan-400/50 transition-all duration-300"
+                  className="group flex items-center space-x-4 p-4 bg-obo-darker/30 backdrop-blur-sm rounded-xl border border-slate-700/50 hover:border-obo-primary/50 transition-all duration-300"
+                  data-testid={`contact-info-${index}`}
                 >
-                  <div className="text-cyan-400 group-hover:text-cyan-300 transition-colors duration-300">
+                  <div className="text-obo-primary group-hover:text-obo-accent transition-colors duration-300">
                     {item.icon}
                   </div>
                   <div>
                     <div className="text-sm text-gray-400">{item.label}</div>
-                    <div className="text-white font-medium group-hover:text-cyan-400 transition-colors duration-300">
+                    <div className="text-white font-medium group-hover:text-obo-accent transition-colors duration-300">
                       {item.value}
                     </div>
                   </div>
@@ -293,25 +299,25 @@ const ContactSection = () => {
             </div>
 
             {/* Additional Info */}
-            <div className="mt-8 p-6 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 backdrop-blur-sm rounded-xl border border-cyan-400/20">
+            <div className="mt-8 p-6 bg-gradient-to-r from-obo-primary/10 to-obo-accent/10 backdrop-blur-sm rounded-xl border border-obo-primary/20">
               <h4 className="text-lg font-semibold text-white mb-3">
                 Why Choose onebyteone?
               </h4>
               <ul className="space-y-2 text-gray-300">
                 <li className="flex items-center space-x-2">
-                  <Check size={16} className="text-cyan-400" />
+                  <Check size={16} className="text-obo-accent" />
                   <span>24/7 Support & Maintenance</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <Check size={16} className="text-cyan-400" />
+                  <Check size={16} className="text-obo-accent" />
                   <span>Agile Development Process</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <Check size={16} className="text-cyan-400" />
+                  <Check size={16} className="text-obo-accent" />
                   <span>Transparent Communication</span>
                 </li>
                 <li className="flex items-center space-x-2">
-                  <Check size={16} className="text-cyan-400" />
+                  <Check size={16} className="text-obo-accent" />
                   <span>Scalable Solutions</span>
                 </li>
               </ul>

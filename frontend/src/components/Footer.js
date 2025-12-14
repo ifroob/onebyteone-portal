@@ -41,7 +41,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border-t border-gray-700/50">
+    <footer className="bg-gradient-to-br from-obo-dark via-obo-darker to-obo-dark border-t border-slate-700/50">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
@@ -53,7 +53,7 @@ const Footer = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4">
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-obo-primary to-obo-accent bg-clip-text text-transparent mb-4">
                 OneByteOne
               </h3>
               <p className="text-gray-300 leading-relaxed max-w-md">
@@ -75,12 +75,14 @@ const Footer = () => {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 px-4 py-2 bg-gray-800/50 backdrop-blur-sm border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
+                  className="flex-1 px-4 py-2 bg-obo-darker/50 backdrop-blur-sm border border-slate-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-obo-primary focus:ring-2 focus:ring-obo-primary/20 transition-all duration-300"
+                  data-testid="newsletter-email-input"
                 />
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-medium rounded-lg hover:from-cyan-400 hover:to-blue-500 transition-all duration-300"
+                  className="px-6 py-2 bg-gradient-to-r from-obo-primary to-obo-accent text-white font-medium rounded-lg hover:from-obo-accent hover:to-obo-primary transition-all duration-300"
+                  data-testid="newsletter-subscribe-button"
                 >
                   Subscribe
                 </motion.button>
@@ -106,7 +108,8 @@ const Footer = () => {
                     aria-label={social.label}
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="p-3 bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700/50 text-gray-300 hover:text-cyan-400 hover:border-cyan-400/50 transition-all duration-300"
+                    className="p-3 bg-obo-darker/50 backdrop-blur-sm rounded-lg border border-slate-700/50 text-gray-300 hover:text-obo-accent hover:border-obo-primary/50 transition-all duration-300"
+                    data-testid={`social-link-${social.label.toLowerCase()}`}
                   >
                     {social.icon}
                   </motion.a>
@@ -133,7 +136,8 @@ const Footer = () => {
                   <li key={index}>
                     <a
                       href={link.href}
-                      className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 hover:underline"
+                      className="text-gray-300 hover:text-obo-accent transition-colors duration-300 hover:underline"
+                      data-testid={`footer-link-${category}-${link.name.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {link.name}
                     </a>
@@ -146,7 +150,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-700/50 bg-gray-900/50 backdrop-blur-sm">
+      <div className="border-t border-slate-700/50 bg-obo-dark/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <motion.div
@@ -164,8 +168,9 @@ const Footer = () => {
               onClick={scrollToTop}
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="group p-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-full shadow-lg hover:shadow-cyan-500/25 transition-all duration-300"
+              className="group p-3 bg-gradient-to-r from-obo-primary to-obo-accent text-white rounded-full shadow-lg hover:shadow-obo-primary/25 transition-all duration-300"
               aria-label="Back to top"
+              data-testid="back-to-top-button"
             >
               <ArrowUp className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform duration-300" />
             </motion.button>

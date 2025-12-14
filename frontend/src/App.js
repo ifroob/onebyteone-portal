@@ -11,7 +11,7 @@ import SEO from './components/SEO';
 
 function App() {
   return (
-    <div className="App bg-slate-900 text-white overflow-x-hidden">
+    <div className="App bg-obo-dark text-white overflow-x-hidden">
       <SEO />
       <Navigation />
       <HeroSection />

@@ -1,7 +1,8 @@
-/* Global Styles with Modern Tech Color Scheme */
-/* Primary: Purple/Violet #8B5CF6 to #A78BFA */
-/* Secondary: Cyan/Blue #06B6D4 to #22D3EE */
-/* Base: Dark Navy/Slate #0F172A to #334155 */
+/* Global Styles with OneByteOne Brand Color Scheme */
+/* Primary: #079BB9 (Teal-Cyan) */
+/* Secondary: #05677A (Deep Teal) */
+/* Accent: #0CC5E3 (Bright Cyan) */
+/* Dark Base: #0F1419 to #1A2332 */
 
 html {
   scroll-behavior: smooth;
@@ -13,7 +14,7 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0f172a;
+  background-color: #0F1419;
   color: #ffffff;
   overflow-x: hidden;
 }
@@ -28,16 +29,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1e293b;
+  background: #1A2332;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #8B5CF6, #06B6D4);
+  background: linear-gradient(to bottom, #079BB9, #0CC5E3);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #A78BFA, #22D3EE);
+  background: linear-gradient(to bottom, #0CC5E3, #079BB9);
 }
 
 /* Custom animations */
@@ -56,10 +57,10 @@ body {
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+    box-shadow: 0 0 20px rgba(7, 155, 185, 0.4);
   }
   50% {
-    box-shadow: 0 0 40px rgba(139, 92, 246, 0.7);
+    box-shadow: 0 0 40px rgba(7, 155, 185, 0.7);
   }
 }
 
@@ -69,14 +70,14 @@ body {
 
 /* Glass morphism effect */
 .glass {
-  background: rgba(30, 41, 59, 0.5);
+  background: rgba(26, 35, 50, 0.5);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(7, 155, 185, 0.2);
 }
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #8B5CF6, #06B6D4, #A78BFA);
+  background: linear-gradient(135deg, #079BB9, #0CC5E3, #079BB9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -106,7 +107,7 @@ body {
 
 /* Loading states */
 .loading-skeleton {
-  background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+  background: linear-gradient(90deg, #1A2332 25%, #05677A 50%, #1A2332 75%);
   background-size: 200% 100%;
   animation: loading 2s infinite;
 }
@@ -122,7 +123,7 @@ body {
 
 /* Focus states for accessibility */
 *:focus {
-  outline: 2px solid #8B5CF6;
+  outline: 2px solid #079BB9;
   outline-offset: 2px;
 }
 
@@ -130,7 +131,7 @@ button:focus,
 input:focus,
 textarea:focus,
 select:focus {
-  outline: 2px solid #8B5CF6;
+  outline: 2px solid #079BB9;
   outline-offset: 2px;
 }
 
@@ -151,7 +152,7 @@ a, button, input, textarea {
 
 /* Custom selection */
 ::selection {
-  background: rgba(139, 92, 246, 0.3);
+  background: rgba(7, 155, 185, 0.3);
   color: #ffffff;
 }
 

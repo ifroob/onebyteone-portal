@@ -25,7 +25,7 @@ const Navigation = () => {
   return (
     <motion.nav 
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-slate-900/95 backdrop-blur-md shadow-2xl' : 'bg-transparent'
+        isScrolled ? 'bg-obo-dark/95 backdrop-blur-md shadow-2xl' : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -37,10 +37,11 @@ const Navigation = () => {
           <img 
             src="https://brianawsbucket12.s3.us-east-1.amazonaws.com/obologo.png"
             width="50" 
-            height="60">
-          </img>
+            height="60"
+            alt="OneByteOne Logo"
+          />
           <motion.div
-            className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-teal-500 bg-clip-text text-transparent"
+            className="text-2xl font-bold bg-gradient-to-r from-obo-primary to-obo-accent bg-clip-text text-transparent"
             whileHover={{ scale: 1.05 }}
           >
             OneByteOne
@@ -52,23 +53,24 @@ const Navigation = () => {
               <motion.button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="text-slate-300 hover:text-emerald-400 transition-colors duration-300 font-medium"
+                className="text-slate-300 hover:text-obo-accent transition-colors duration-300 font-medium"
                 whileHover={{ scale: 1.1 }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
+                data-testid={`nav-${item.toLowerCase()}`}
               >
                 {item}
               </motion.button>
             ))}
           </div>
 
-
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-slate-300 hover:text-emerald-400"
+            className="md:hidden text-slate-300 hover:text-obo-accent"
             style={{marginLeft: "auto"}}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            data-testid="mobile-menu-button"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -86,7 +88,8 @@ const Navigation = () => {
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="block w-full text-left py-2 text-slate-300 hover:text-emerald-400 transition-colors duration-300"
+                className="block w-full text-left py-2 text-slate-300 hover:text-obo-accent transition-colors duration-300"
+                data-testid={`mobile-nav-${item.toLowerCase()}`}
               >
                 {item}
               </button>

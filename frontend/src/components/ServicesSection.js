@@ -142,7 +142,7 @@ const ServicesSection = () => {
                     </div>
                   </td>
                   <td className="px-6 py-5">
-                    <span className="text-cyan-400 font-bold whitespace-nowrap">{service.price}</span>
+                    <span className="text-obo-accent font-bold whitespace-nowrap">{service.price}</span>
                   </td>
                   <td className="px-6 py-5">
                     <p className="text-slate-300 leading-relaxed">{service.value}</p>
@@ -187,7 +187,7 @@ const ServicesSection = () => {
                 <span className="text-2xl">{service.icon}</span>
                 <div className="text-left">
                   <h4 className="font-semibold text-white text-sm mb-1">{service.name}</h4>
-                  <p className="text-cyan-400 font-bold text-sm">{service.price}</p>
+                  <p className="text-obo-accent font-bold text-sm">{service.price}</p>
                 </div>
               </div>
               <motion.div
@@ -212,7 +212,7 @@ const ServicesSection = () => {
                 className="border-t border-slate-700 p-5 space-y-4"
               >
                 <div>
-                  <h5 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
+                  <h5 className="text-xs font-semibold text-obo-primary uppercase tracking-wider mb-2">
                     Core Value Proposition
                   </h5>
                   <p className="text-slate-300 text-sm leading-relaxed">{service.value}</p>
@@ -235,7 +235,7 @@ const ServicesSection = () => {
   );
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+    <section id="services" className="py-20 bg-gradient-to-br from-obo-dark via-obo-darker to-obo-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Section Header */}
         <motion.div
@@ -246,7 +246,7 @@ const ServicesSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-obo-primary to-obo-accent bg-clip-text text-transparent">
               Our Services
             </span>
           </h2>
@@ -260,7 +260,7 @@ const ServicesSection = () => {
           title="📈 OneByteOne ACADEMY (B2C Focus)"
           services={academyServices}
           icon={GraduationCap}
-          gradient="from-violet-500 to-purple-600"
+          gradient="from-obo-secondary to-obo-primary"
         />
 
         {/* Consulting Services Table */}
@@ -268,7 +268,7 @@ const ServicesSection = () => {
           title="🛠️ OneByteOne CONSULTING (B2B Focus)"
           services={consultingServices}
           icon={Briefcase}
-          gradient="from-cyan-500 to-blue-600"
+          gradient="from-obo-primary to-obo-accent"
         />
 
         {/* Call to Action */}
@@ -279,7 +279,7 @@ const ServicesSection = () => {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <div className="bg-gradient-to-r from-violet-500/10 to-cyan-500/10 rounded-2xl border border-violet-500/30 p-8 md:p-12">
+          <div className="bg-gradient-to-r from-obo-primary/10 to-obo-accent/10 rounded-2xl border border-obo-primary/30 p-8 md:p-12">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
               Not Sure Which Service Is Right for You?
             </h3>
@@ -290,7 +290,8 @@ const ServicesSection = () => {
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-violet-500 to-cyan-500 text-white font-bold rounded-full text-lg transition-all duration-300 shadow-lg hover:shadow-2xl"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-obo-primary to-obo-accent text-white font-bold rounded-full text-lg transition-all duration-300 shadow-lg hover:shadow-2xl"
+              data-testid="schedule-consultation-button"
             >
               Schedule Free Consultation
               <ExternalLink size={20} />

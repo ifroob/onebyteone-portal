@@ -10,8 +10,8 @@ const QuizSelector = ({ onSelectQuiz }) => {
       subtitle: 'Ages 12-18',
       description: 'Perfect for teens exploring their tech potential',
       icon: Gamepad2,
-      color: 'from-violet-500 to-purple-600',
-      hoverColor: 'hover:from-violet-400 hover:to-purple-500'
+      color: 'from-obo-secondary to-obo-primary',
+      hoverColor: 'hover:from-obo-primary hover:to-obo-accent'
     },
     {
       id: 'adult',
@@ -19,8 +19,8 @@ const QuizSelector = ({ onSelectQuiz }) => {
       subtitle: 'Career Switchers',
       description: 'Assess your readiness for a tech career transition',
       icon: Brain,
-      color: 'from-emerald-500 to-teal-600',
-      hoverColor: 'hover:from-emerald-400 hover:to-teal-500'
+      color: 'from-obo-primary to-obo-accent',
+      hoverColor: 'hover:from-obo-accent hover:to-obo-primary'
     },
     {
       id: 'business',
@@ -28,8 +28,8 @@ const QuizSelector = ({ onSelectQuiz }) => {
       subtitle: 'Business Leaders',
       description: 'Evaluate your tech infrastructure and growth potential',
       icon: Briefcase,
-      color: 'from-amber-500 to-orange-600',
-      hoverColor: 'hover:from-amber-400 hover:to-orange-500'
+      color: 'from-obo-accent to-obo-primary',
+      hoverColor: 'hover:from-obo-primary hover:to-obo-secondary'
     }
   ];
 
@@ -62,7 +62,7 @@ const QuizSelector = ({ onSelectQuiz }) => {
             >
               <motion.button
                 onClick={() => onSelectQuiz(quiz.id)}
-                className={`w-full bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-slate-700 hover:border-emerald-500/50 transition-all duration-300 text-left h-full flex flex-col`}
+                className={`w-full bg-obo-darker/50 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-slate-700 hover:border-obo-primary/50 transition-all duration-300 text-left h-full flex flex-col`}
                 whileHover={{ scale: 1.03, y: -5 }}
                 whileTap={{ scale: 0.98 }}
                 data-testid={`quiz-selector-${quiz.id}`}
@@ -71,11 +71,11 @@ const QuizSelector = ({ onSelectQuiz }) => {
                   <Icon className="w-8 h-8 text-white" />
                 </div>
                 
-                <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
+                <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-obo-accent transition-colors">
                   {quiz.title}
                 </h3>
                 
-                <p className="text-emerald-400 text-sm font-semibold mb-3">
+                <p className="text-obo-accent text-sm font-semibold mb-3">
                   {quiz.subtitle}
                 </p>
                 
@@ -83,7 +83,7 @@ const QuizSelector = ({ onSelectQuiz }) => {
                   {quiz.description}
                 </p>
                 
-                <div className="flex items-center text-emerald-400 font-semibold">
+                <div className="flex items-center text-obo-accent font-semibold">
                   <span>Start Assessment</span>
                   <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform duration-300" size={20} />
                 </div>
