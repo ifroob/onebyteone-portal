@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Check, ExternalLink, PersonStanding } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Check, ExternalLink, PersonStanding, Instagram } from 'lucide-react';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -68,14 +68,20 @@ const ContactSection = () => {
   const contactInfo = [
     {
       icon: <PersonStanding className="w-6 h-6" />,
-      label: "CTO",
+      label: "Founder",
       value: "Brian Ta",
     },
     {
       icon: <Mail className="w-6 h-6" />,
       label: "Email",
-      value: "9brian.ta5@gmail.com",
-      href: "mailto:9brian.ta5@gmail.com"
+      value: "onebyteone.solutions.llc@gmail.com",
+      href: "mailto:onebyteone.solutions.llc@gmail.com"
+    },
+    {
+      icon: <Instagram className="w-6 h-6" />,
+      label: "Follow us on Instagram!",
+      value: "@one.byte.one",
+      href: ""
     },
     {
       icon: <MapPin className="w-6 h-6" />,

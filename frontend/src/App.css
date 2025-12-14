@@ -1,4 +1,8 @@
-/* Global Styles */
+/* Global Styles with Modern Tech Color Scheme */
+/* Primary: Purple/Violet #8B5CF6 to #A78BFA */
+/* Secondary: Cyan/Blue #06B6D4 to #22D3EE */
+/* Base: Dark Navy/Slate #0F172A to #334155 */
+
 html {
   scroll-behavior: smooth;
 }
@@ -20,7 +24,7 @@ body {
 
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -28,12 +32,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #10b981, #14b8a6);
-  border-radius: 4px;
+  background: linear-gradient(to bottom, #8B5CF6, #06B6D4);
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #059669, #0d9488);
+  background: linear-gradient(to bottom, #A78BFA, #22D3EE);
 }
 
 /* Custom animations */
@@ -52,10 +56,10 @@ body {
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
   }
   50% {
-    box-shadow: 0 0 40px rgba(16, 185, 129, 0.6);
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.7);
   }
 }
 
@@ -65,14 +69,14 @@ body {
 
 /* Glass morphism effect */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(30, 41, 59, 0.5);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
 }
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #10b981, #14b8a6, #a78bfa);
+  background: linear-gradient(135deg, #8B5CF6, #06B6D4, #A78BFA);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -102,7 +106,7 @@ body {
 
 /* Loading states */
 .loading-skeleton {
-  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+  background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
   background-size: 200% 100%;
   animation: loading 2s infinite;
 }
@@ -118,7 +122,7 @@ body {
 
 /* Focus states for accessibility */
 *:focus {
-  outline: 2px solid #10b981;
+  outline: 2px solid #8B5CF6;
   outline-offset: 2px;
 }
 
@@ -126,7 +130,7 @@ button:focus,
 input:focus,
 textarea:focus,
 select:focus {
-  outline: 2px solid #10b981;
+  outline: 2px solid #8B5CF6;
   outline-offset: 2px;
 }
 
@@ -147,7 +151,7 @@ a, button, input, textarea {
 
 /* Custom selection */
 ::selection {
-  background: rgba(16, 185, 129, 0.3);
+  background: rgba(139, 92, 246, 0.3);
   color: #ffffff;
 }
 

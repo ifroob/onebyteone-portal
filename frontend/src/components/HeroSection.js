@@ -119,7 +119,7 @@ const HeroSection = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed"
           >
-              We empower businesses and individuals with effective software!
+              OneByteOne is a dual-focus technology firm dedicated to closing the gap between demand and capability. On the consulting side, we deliver high-performance, custom engineering solutions that help businesses modernize and scale. On the education side, we offer alternative, project-based training to turn aspiring coders into interview-ready engineers. We don't just write code; we build the ecosystem around it.
           </motion.p>
 
           {/* CTA Buttons */}

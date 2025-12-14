@@ -4,33 +4,26 @@ import QuizSelector from './QuizSelector';
 import QuizTaking from './QuizTaking';
 import QuizResults from './QuizResults';
 import { quizzes } from '../data/quizData';
-import axios from 'axios';
+import { calculateQuizResult } from '../utils/quizCalculator';
 
 const QuizSection = () => {
   const [stage, setStage] = useState('selection'); // 'selection', 'taking', 'results'
   const [selectedQuizId, setSelectedQuizId] = useState(null);
   const [quizResult, setQuizResult] = useState(null);
 
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || '';
-
   const handleSelectQuiz = (quizId) => {
     setSelectedQuizId(quizId);
     setStage('taking');
   };
 
-  const handleQuizComplete = async (answers) => {
+  const handleQuizComplete = (answers) => {
     try {
-      const response = await axios.post(`${backendUrl}/api/quiz/submit`, {
-        quiz_type: selectedQuizId,
-        user_name: 'Anonymous',
-        user_email: 'anonymous@quiz.com',
-        answers: answers
-      });
-
-      setQuizResult(response.data);
+      // Calculate results locally without backend
+      const result = calculateQuizResult(selectedQuizId, answers);
+      setQuizResult(result);
       setStage('results');
     } catch (error) {
-      console.error('Error submitting quiz:', error);
+      console.error('Error calculating quiz results:', error);
       alert('There was an error calculating your results. Please try again.');
     }
   };
