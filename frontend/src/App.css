@@ -38,12 +38,14 @@ body {
   scroll-behavior: smooth;
   scrollbar-width: thin;
   scrollbar-color: var(--obo-primary) transparent;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
 }
 .deck::-webkit-scrollbar { width: 6px; }
 .deck::-webkit-scrollbar-track { background: transparent; }
 .deck::-webkit-scrollbar-thumb { background: var(--obo-primary); border-radius: 3px; }
 
-/* Slide snap */
+/* Slide snap – always lock to the top of the next slide */
 .slide {
   scroll-snap-align: start;
   scroll-snap-stop: always;
@@ -72,6 +74,7 @@ body {
 .border-obo-accent { border-color: var(--obo-accent); }
 
 .ring-obo-primary\/20 { --tw-ring-color: rgba(8, 155, 185, 0.2); }
+.ring-obo-primary\/30 { --tw-ring-color: rgba(8, 155, 185, 0.3); }
 
 /* Monospace helper */
 .font-mono { font-family: 'JetBrains Mono', 'Fira Code', monospace; }
@@ -151,10 +154,18 @@ a, button { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
   box-shadow: 0 12px 40px rgba(26, 26, 46, 0.08);
 }
 
-/* Mobile tweaks – disable snap on small screens so content is fully readable */
+/* Mobile tweaks – KEEP mandatory snap so each slide locks to its top */
 @media (max-width: 768px) {
-  .deck { scroll-snap-type: y proximity; }
-  .slide { padding-top: 5rem; padding-bottom: 3rem; }
+  .deck {
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 0;
+  }
+  .slide {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
 }
 
 @media (max-width: 640px) {

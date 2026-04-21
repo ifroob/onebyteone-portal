@@ -6,8 +6,34 @@ import {
   ChevronDown, Copy, Check, User, Building2, Rocket,
 } from 'lucide-react';
 
+const INSTAGRAM_USERNAME = 'one.byte.one';
 const INSTAGRAM_DM = 'https://ig.me/m/one.byte.one';
 const INSTAGRAM_HANDLE = '@one.byte.one';
+
+/* ---------- Instagram deep-link: opens app on mobile, web on desktop ---------- */
+const isMobileUA = () =>
+  typeof navigator !== 'undefined' &&
+  /iPhone|iPad|iPod|Android/i.test(navigator.userAgent || '');
+
+const openInstagramDM = (e) => {
+  if (!isMobileUA()) return; // let <a target="_blank"> handle desktop
+  if (e && e.preventDefault) e.preventDefault();
+  // Try the app via custom scheme first (opens Instagram app profile, user taps Message).
+  const appUrl = `instagram://user?username=${INSTAGRAM_USERNAME}`;
+  const startedAt = Date.now();
+  // Fallback to the official ig.me DM universal link if the app didn't take over.
+  const fallback = setTimeout(() => {
+    if (Date.now() - startedAt < 2500 && document.visibilityState === 'visible') {
+      window.location.href = INSTAGRAM_DM;
+    }
+  }, 1200);
+  // Hide the fallback if the app actually opened (page gets backgrounded).
+  const cancel = () => {
+    if (document.visibilityState === 'hidden') clearTimeout(fallback);
+  };
+  document.addEventListener('visibilitychange', cancel, { once: true });
+  window.location.href = appUrl;
+};
 
 /* --------------------------------- SLIDES --------------------------------- */
 const SLIDES = [
@@ -119,26 +145,36 @@ const Slide = ({ id, children, className = '' }) => (
   </section>
 );
 
+/* Slide counter. On mobile it lives in the bottom-right corner so it can
+   never collide with centered hero content (fixes the “01/08 blocking the
+   // architecting futures byte by byte” overlap). On desktop it sits at
+   the top-left like before. */
 const SlideNumber = ({ n, total }) => (
-  <div className="absolute top-24 left-4 sm:left-8 font-mono text-xs tracking-[0.3em] text-obo-primary/80">
+  <div
+    className="absolute bottom-4 right-4 sm:top-24 sm:left-8 sm:bottom-auto sm:right-auto
+               font-mono text-[10px] sm:text-xs tracking-[0.3em] text-obo-primary/80
+               bg-black/30 sm:bg-transparent px-2 py-1 sm:px-0 sm:py-0 rounded-full sm:rounded-none
+               backdrop-blur-sm sm:backdrop-blur-0 z-20 pointer-events-none select-none"
+    data-testid={`slide-num-${n}`}
+  >
     {String(n).padStart(2, '0')} / {String(total).padStart(2, '0')}
   </div>
 );
 
-/* ------------------------------- 01 · INTRO ------------------------------- */
+/* ------------------------------- 01 · INTRO (DARK) ------------------------- */
 const IntroSlide = ({ goToSlide }) => (
-  <Slide id="intro" className="bg-gradient-to-b from-obo-warm-gray to-obo-cream">
+  <Slide id="intro" className="bg-obo-dark">
     <SlideNumber n={1} total={SLIDES.length} />
     <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full text-center">
-      <div className="inline-flex items-center gap-2 bg-obo-cream px-4 py-2 rounded-full shadow-sm border border-obo-primary/20 mb-6">
+      <div className="inline-flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full shadow-sm border border-white/10 mb-6">
         <span className="w-2 h-2 bg-obo-primary rounded-full animate-pulse"></span>
-        <span className="text-sm text-obo-dark font-mono tracking-wide">// architecting futures · byte by byte</span>
+        <span className="text-sm text-white/85 font-mono tracking-wide">// architecting futures · byte by byte</span>
       </div>
-      <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-obo-dark leading-[1.02] mb-6 tracking-tight">
+      <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-[1.02] mb-6 tracking-tight">
         Precision-engineered outcomes.<br />
         <span className="text-obo-primary">Tactical paths into tech.</span>
       </h1>
-      <p className="text-lg sm:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+      <p className="text-lg sm:text-xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed">
         A dual-vector technology firm. We build production-grade systems for businesses and high-leverage skill blueprints for people breaking into tech.
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -161,7 +197,7 @@ const IntroSlide = ({ goToSlide }) => (
   </Slide>
 );
 
-/* ------------------------------ 02 · MISSION ------------------------------ */
+/* ------------------------------ 02 · MISSION (LIGHT) ---------------------- */
 const MissionSlide = () => (
   <Slide id="mission" className="bg-obo-cream">
     <SlideNumber n={2} total={SLIDES.length} />
@@ -197,50 +233,50 @@ const MissionSlide = () => (
   </Slide>
 );
 
-/* ---------------------------- 03 · WHO I AM ------------------------------- */
+/* ---------------------------- 03 · WHO I AM (DARK) ------------------------ */
 const ArchitectSlide = () => (
-  <Slide id="architect" className="bg-obo-surface">
+  <Slide id="architect" className="bg-obo-dark">
     <SlideNumber n={3} total={SLIDES.length} />
     <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full">
       <span className="text-obo-primary font-mono text-xs uppercase tracking-[0.3em]">// founder.profile</span>
-      <h2 className="text-3xl sm:text-5xl font-bold text-obo-dark mt-3 mb-10 tracking-tight">
-        Brian Ta <span className="text-gray-400 font-light">— Principal Architect</span>
+      <h2 className="text-3xl sm:text-5xl font-bold text-white mt-3 mb-10 tracking-tight">
+        Brian Ta <span className="text-white/40 font-light">— Principal Architect</span>
       </h2>
       <div className="grid md:grid-cols-5 gap-8 items-center">
         <div className="md:col-span-2">
           <div className="grid grid-cols-2 gap-3">
-            <div className="aspect-[4/5] overflow-hidden rounded-2xl bg-obo-cream">
+            <div className="aspect-[4/5] overflow-hidden rounded-2xl bg-white/5">
               <img src="/brian3.png" alt="Brian Ta" className="w-full h-full object-cover" />
             </div>
-            <div className="aspect-[4/5] overflow-hidden rounded-2xl bg-obo-cream">
+            <div className="aspect-[4/5] overflow-hidden rounded-2xl bg-white/5">
               <img src="/brian2.png" alt="Brian Ta" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
         <div className="md:col-span-3">
-          <p className="text-gray-700 text-lg leading-relaxed mb-4">
-            8+ years across the full stack — software engineering, DevOps, and cloud architecture — inside <span className="font-semibold text-obo-dark">three+ Fortune 500</span> environments where uptime, security, and throughput are non-negotiable.
+          <p className="text-white/80 text-lg leading-relaxed mb-4">
+            8+ years across the full stack — software engineering, DevOps, and cloud architecture — inside <span className="font-semibold text-white">three+ Fortune 500</span> environments where uptime, security, and throughput are non-negotiable.
           </p>
-          <p className="text-gray-600 leading-relaxed mb-6">
+          <p className="text-white/65 leading-relaxed mb-6">
             OneByteOne is that enterprise playbook, translated: lean high-velocity builds for businesses, no-BS roadmaps for engineers. Plain language for non-technical readers. Depth for the technical ones.
           </p>
           <div className="grid grid-cols-3 gap-3 mb-6">
-            <div className="bg-obo-cream rounded-xl p-4 text-center border border-obo-primary/10">
+            <div className="bg-white/5 rounded-xl p-4 text-center border border-white/10">
               <div className="text-2xl sm:text-3xl font-bold text-obo-primary">8+</div>
-              <div className="text-[10px] text-obo-dark font-medium mt-1 uppercase tracking-wider">Years</div>
+              <div className="text-[10px] text-white/80 font-medium mt-1 uppercase tracking-wider">Years</div>
             </div>
-            <div className="bg-obo-cream rounded-xl p-4 text-center border border-obo-primary/10">
+            <div className="bg-white/5 rounded-xl p-4 text-center border border-white/10">
               <div className="text-2xl sm:text-3xl font-bold text-obo-primary">3+</div>
-              <div className="text-[10px] text-obo-dark font-medium mt-1 uppercase tracking-wider">Fortune 500</div>
+              <div className="text-[10px] text-white/80 font-medium mt-1 uppercase tracking-wider">Fortune 500</div>
             </div>
-            <div className="bg-obo-cream rounded-xl p-4 text-center border border-obo-primary/10">
+            <div className="bg-white/5 rounded-xl p-4 text-center border border-white/10">
               <div className="text-2xl sm:text-3xl font-bold text-obo-primary">3x</div>
-              <div className="text-[10px] text-obo-dark font-medium mt-1 uppercase tracking-wider">Domains</div>
+              <div className="text-[10px] text-white/80 font-medium mt-1 uppercase tracking-wider">Domains</div>
             </div>
           </div>
           <div className="flex flex-wrap gap-2">
             {['Software Engineering', 'DevOps', 'Cloud Architecture', 'Systems Design', 'Mentorship'].map((tag) => (
-              <span key={tag} className="text-[11px] font-mono px-2.5 py-1 rounded-full border border-obo-primary/30 text-obo-primary bg-obo-cream">
+              <span key={tag} className="text-[11px] font-mono px-2.5 py-1 rounded-full border border-obo-primary/40 text-obo-primary bg-white/5">
                 {tag}
               </span>
             ))}
@@ -254,7 +290,7 @@ const ArchitectSlide = () => (
             ].map(({ icon: Icon, label }) => (
               <div key={label} className="flex items-center gap-2">
                 <Icon className="text-obo-primary flex-shrink-0" size={16} />
-                <span className="text-obo-dark text-sm">{label}</span>
+                <span className="text-white/85 text-sm">{label}</span>
               </div>
             ))}
           </div>
@@ -264,7 +300,7 @@ const ArchitectSlide = () => (
   </Slide>
 );
 
-/* ----------------------------- 04 · THE PROBLEM --------------------------- */
+/* ----------------------------- 04 · THE PROBLEM (LIGHT) ------------------- */
 const ProblemSlide = () => {
   const problems = [
     { icon: TrendingUp, stat: '$1.7T', label: 'Student Debt',        title: 'Education debt trap',  note: '52% of grads are underemployed within a year.' },
@@ -307,7 +343,7 @@ const ProblemSlide = () => {
   );
 };
 
-/* ----------------------------- 05 · OFFERINGS ----------------------------- */
+/* ----------------------------- 05 · OFFERINGS (DARK) ---------------------- */
 const OfferingsSlide = ({ goToSlide }) => {
   const offerings = [
     { icon: Briefcase,     title: 'For Businesses', subtitle: 'Deploy what you need',
@@ -321,21 +357,21 @@ const OfferingsSlide = ({ goToSlide }) => {
       features: ['Diagnose your current state', 'Identify real blockers', 'Personalized plan', 'No pitch, no commitment'], accent: 'border-obo-beige', highlight: true },
   ];
   return (
-    <Slide id="offerings" className="bg-obo-cream">
+    <Slide id="offerings" className="bg-obo-dark">
       <SlideNumber n={5} total={SLIDES.length} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full">
         <span className="text-obo-primary font-mono text-xs uppercase tracking-[0.3em]">// service.modules</span>
-        <h2 className="text-3xl sm:text-5xl font-bold text-obo-dark mt-3 mb-3 tracking-tight">
+        <h2 className="text-3xl sm:text-5xl font-bold text-white mt-3 mb-3 tracking-tight">
           Two vectors. One standard.
         </h2>
-        <p className="text-gray-600 text-base sm:text-lg max-w-2xl mb-10">
+        <p className="text-white/70 text-base sm:text-lg max-w-2xl mb-10">
           Pick the track that matches where you are. We'll meet you there and accelerate from there.
         </p>
         <div className="grid md:grid-cols-3 gap-5">
           {offerings.map((o, i) => (
             <div
               key={i}
-              className={`bg-obo-surface rounded-2xl p-6 card-hover border-t-4 ${o.accent} ${o.highlight ? 'ring-2 ring-obo-primary/20' : ''} flex flex-col`}
+              className={`bg-white/5 rounded-2xl p-6 card-hover border-t-4 ${o.accent} border-x border-b border-white/10 ${o.highlight ? 'ring-2 ring-obo-primary/30' : ''} flex flex-col`}
               data-testid={`offering-${i}`}
             >
               {o.highlight && (
@@ -343,31 +379,34 @@ const OfferingsSlide = ({ goToSlide }) => {
                   Recommended
                 </div>
               )}
-              <div className="w-12 h-12 bg-obo-light rounded-xl flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-obo-primary/20 rounded-xl flex items-center justify-center mb-4">
                 <o.icon className="text-obo-primary" size={24} />
               </div>
-              <h3 className="text-xl font-bold text-obo-dark mb-1 tracking-tight">{o.title}</h3>
+              <h3 className="text-xl font-bold text-white mb-1 tracking-tight">{o.title}</h3>
               <p className="text-obo-primary font-medium text-sm mb-2">{o.subtitle}</p>
-              <p className="text-gray-600 text-sm mb-4">{o.description}</p>
+              <p className="text-white/70 text-sm mb-4">{o.description}</p>
               <ul className="space-y-2 mb-5 flex-1">
                 {o.features.map((f, fi) => (
                   <li key={fi} className="flex items-start gap-2">
                     <CheckCircle className="text-obo-primary flex-shrink-0 mt-0.5" size={15} />
-                    <span className="text-gray-700 text-xs sm:text-sm">{f}</span>
+                    <span className="text-white/85 text-xs sm:text-sm">{f}</span>
                   </li>
                 ))}
               </ul>
-              <button
-                onClick={() => goToSlide(SLIDES.length - 1)}
+              <a
+                href={INSTAGRAM_DM}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={openInstagramDM}
                 className={`inline-flex items-center justify-center gap-2 font-semibold px-4 py-2.5 rounded-xl transition-all w-full text-sm ${
                   o.highlight
-                    ? 'bg-obo-primary text-white hover:bg-obo-dark'
-                    : 'bg-obo-cream text-obo-primary hover:bg-obo-primary hover:text-white border border-obo-primary/30'
+                    ? 'bg-obo-primary text-white hover:bg-white hover:text-obo-primary'
+                    : 'bg-white/10 text-obo-primary hover:bg-obo-primary hover:text-white border border-obo-primary/40'
                 }`}
                 data-testid={`offering-cta-${i}`}
               >
                 <Instagram size={16} /> DM to start
-              </button>
+              </a>
             </div>
           ))}
         </div>
@@ -376,7 +415,7 @@ const OfferingsSlide = ({ goToSlide }) => {
   );
 };
 
-/* ------------------------------ 06 · AUDIENCE ----------------------------- */
+/* ------------------------------ 06 · AUDIENCE (LIGHT) --------------------- */
 const AUDIENCE = [
   {
     key: 'learner',
@@ -410,14 +449,14 @@ const AUDIENCE = [
 const AudienceSlide = () => {
   const [active, setActive] = useState('learner');
   return (
-    <Slide id="audience" className="bg-obo-dark">
+    <Slide id="audience" className="bg-obo-warm-gray">
       <SlideNumber n={6} total={SLIDES.length} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full">
         <span className="text-obo-primary font-mono text-xs uppercase tracking-[0.3em]">// target.audience</span>
-        <h2 className="text-3xl sm:text-5xl font-bold text-white mt-3 mb-2 tracking-tight">
+        <h2 className="text-3xl sm:text-5xl font-bold text-obo-dark mt-3 mb-2 tracking-tight">
           Identify your node.
         </h2>
-        <p className="text-white/60 text-base sm:text-lg max-w-2xl mb-8">
+        <p className="text-gray-600 text-base sm:text-lg max-w-2xl mb-8">
           Three kinds of people walk through our door. Hover or tap a card to see how we engineer the win.
         </p>
         <div className="grid md:grid-cols-3 gap-4">
@@ -432,34 +471,34 @@ const AudienceSlide = () => {
                 className={`text-left rounded-2xl p-6 border transition-all duration-300 ${
                   isActive
                     ? 'bg-obo-primary border-obo-primary shadow-[0_12px_40px_rgba(8,155,185,0.25)] scale-[1.02]'
-                    : 'bg-white/5 border-white/10 hover:bg-white/10'
+                    : 'bg-obo-cream border-gray-200/60 hover:border-obo-primary/40 hover:shadow-md'
                 }`}
                 data-testid={`audience-card-${a.key}`}
               >
                 <div className="flex items-center justify-between mb-4">
-                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${isActive ? 'bg-white/20' : 'bg-obo-primary/20'}`}>
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${isActive ? 'bg-white/20' : 'bg-obo-primary/15'}`}>
                     <a.icon className={isActive ? 'text-white' : 'text-obo-primary'} size={22} />
                   </div>
-                  <span className={`text-[10px] font-mono tracking-[0.2em] ${isActive ? 'text-white/70' : 'text-white/40'}`}>
+                  <span className={`text-[10px] font-mono tracking-[0.2em] ${isActive ? 'text-white/80' : 'text-gray-400'}`}>
                     [{a.tag}]
                   </span>
                 </div>
-                <p className={`font-mono text-[11px] uppercase tracking-[0.2em] mb-2 ${isActive ? 'text-white/80' : 'text-obo-primary'}`}>
+                <p className={`font-mono text-[11px] uppercase tracking-[0.2em] mb-2 ${isActive ? 'text-white/90' : 'text-obo-primary'}`}>
                   {'>'} {a.arrow}
                 </p>
-                <div className={`space-y-3 transition-opacity ${isActive ? 'opacity-100' : 'opacity-70'}`}>
+                <div className={`space-y-3 transition-opacity ${isActive ? 'opacity-100' : 'opacity-95'}`}>
                   <div>
-                    <p className={`text-[10px] font-mono uppercase tracking-wider mb-1 ${isActive ? 'text-white/70' : 'text-white/50'}`}>Profile</p>
-                    <p className={`text-sm leading-relaxed ${isActive ? 'text-white' : 'text-white/80'}`}>{a.profile}</p>
+                    <p className={`text-[10px] font-mono uppercase tracking-wider mb-1 ${isActive ? 'text-white/80' : 'text-gray-500'}`}>Profile</p>
+                    <p className={`text-sm leading-relaxed ${isActive ? 'text-white' : 'text-obo-dark'}`}>{a.profile}</p>
                   </div>
                   {isActive && (
                     <>
                       <div>
-                        <p className="text-[10px] font-mono uppercase tracking-wider mb-1 text-white/70">Pain</p>
+                        <p className="text-[10px] font-mono uppercase tracking-wider mb-1 text-white/80">Pain</p>
                         <p className="text-sm leading-relaxed text-white">{a.pain}</p>
                       </div>
                       <div>
-                        <p className="text-[10px] font-mono uppercase tracking-wider mb-1 text-white/70">Win</p>
+                        <p className="text-[10px] font-mono uppercase tracking-wider mb-1 text-white/80">Win</p>
                         <p className="text-sm leading-relaxed text-white font-medium">{a.win}</p>
                       </div>
                     </>
@@ -474,45 +513,48 @@ const AudienceSlide = () => {
   );
 };
 
-/* ----------------------------- 07 · NEXT STEPS ---------------------------- */
-const NextStepsSlide = ({ goToSlide }) => {
+/* ----------------------------- 07 · NEXT STEPS (DARK) --------------------- */
+const NextStepsSlide = () => {
   const roadmaps = [
     { tag: 'BUILD',   title: '6-Week Tech Roadmap',          desc: 'Weekly milestones from curious to shipping production code.' },
     { tag: 'MINDSET', title: '14-Day Tech Mindset Blueprint',desc: 'Two-week OS for how to think and iterate like an engineer who deploys.' },
   ];
   return (
-    <Slide id="next-steps" className="bg-obo-cream">
+    <Slide id="next-steps" className="bg-obo-dark">
       <SlideNumber n={7} total={SLIDES.length} />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 w-full">
         <span className="text-obo-primary font-mono text-xs uppercase tracking-[0.3em]">// next.steps</span>
-        <h2 className="text-3xl sm:text-5xl font-bold text-obo-dark mt-3 mb-3 tracking-tight">
+        <h2 className="text-3xl sm:text-5xl font-bold text-white mt-3 mb-3 tracking-tight">
           Initialize with the blueprint.
         </h2>
-        <p className="text-gray-600 text-base sm:text-lg max-w-2xl mb-8">
+        <p className="text-white/70 text-base sm:text-lg max-w-2xl mb-8">
           Two free roadmaps. Zero fluff. DM us on Instagram with your name and which one you want — we'll transmit it over.
         </p>
         <div className="grid md:grid-cols-2 gap-5 mb-8">
           {roadmaps.map((r, i) => (
-            <div key={i} className="bg-obo-surface rounded-2xl p-6 border border-obo-primary/10 hover:border-obo-primary/40 transition-all card-hover">
+            <div key={i} className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-obo-primary/50 transition-all card-hover">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-[10px] font-mono font-semibold tracking-[0.2em] text-obo-primary bg-obo-cream px-2.5 py-1 rounded-full border border-obo-primary/20">
+                <span className="text-[10px] font-mono font-semibold tracking-[0.2em] text-obo-primary bg-white/5 px-2.5 py-1 rounded-full border border-obo-primary/30">
                   {r.tag}
                 </span>
-                <span className="text-xs font-mono text-gray-400">0{i + 1}</span>
+                <span className="text-xs font-mono text-white/40">0{i + 1}</span>
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-obo-dark mb-2 tracking-tight">{r.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">{r.desc}</p>
-              <button
-                onClick={() => goToSlide(SLIDES.length - 1)}
-                className="inline-flex items-center justify-center gap-2 font-semibold px-4 py-2.5 rounded-xl transition-all w-full text-sm bg-obo-cream text-obo-primary hover:bg-obo-primary hover:text-white border border-obo-primary/30"
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-2 tracking-tight">{r.title}</h3>
+              <p className="text-white/70 text-sm leading-relaxed mb-4">{r.desc}</p>
+              <a
+                href={INSTAGRAM_DM}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={openInstagramDM}
+                className="inline-flex items-center justify-center gap-2 font-semibold px-4 py-2.5 rounded-xl transition-all w-full text-sm bg-white/10 text-obo-primary hover:bg-obo-primary hover:text-white border border-obo-primary/40"
                 data-testid={`roadmap-cta-${i}`}
               >
                 <Instagram size={16} /> DM to request
-              </button>
+              </a>
             </div>
           ))}
         </div>
-        <div className="bg-obo-surface rounded-xl p-4 border border-obo-primary/10 text-sm text-gray-600 font-mono">
+        <div className="bg-white/5 rounded-xl p-4 border border-white/10 text-sm text-white/75 font-mono">
           {'> '}include your <span className="text-obo-primary font-semibold">name</span> + <span className="text-obo-primary font-semibold">which roadmap</span>. We'll handle the rest.
         </div>
       </div>
@@ -520,7 +562,7 @@ const NextStepsSlide = ({ goToSlide }) => {
   );
 };
 
-/* -------------------------------- 08 · CTA -------------------------------- */
+/* -------------------------------- 08 · CTA (LIGHT) ------------------------ */
 const TEMPLATES = {
   learner: {
     label: 'I\'m a Learner',
@@ -598,14 +640,14 @@ const CtaSlide = () => {
   }, [tpl.body]);
 
   return (
-    <Slide id="cta" className="bg-obo-dark">
+    <Slide id="cta" className="bg-obo-cream">
       <SlideNumber n={8} total={SLIDES.length} />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 w-full py-24">
         <span className="text-obo-primary font-mono text-xs uppercase tracking-[0.3em]">// establish.connection</span>
-        <h2 className="text-3xl sm:text-5xl font-bold text-white mt-3 mb-3 tracking-tight">
+        <h2 className="text-3xl sm:text-5xl font-bold text-obo-dark mt-3 mb-3 tracking-tight">
           Ready to initialize?
         </h2>
-        <p className="text-white/70 text-base sm:text-lg max-w-2xl mb-8">
+        <p className="text-gray-600 text-base sm:text-lg max-w-2xl mb-8">
           Pick your node. Copy the template. DM us on Instagram. One message, one plan, zero overhead.
         </p>
 
@@ -622,7 +664,7 @@ const CtaSlide = () => {
                 className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
                   isActive
                     ? 'bg-obo-primary text-white shadow-[0_8px_24px_rgba(8,155,185,0.35)]'
-                    : 'bg-white/5 text-white/80 hover:bg-white/10 border border-white/10'
+                    : 'bg-white text-obo-dark hover:bg-obo-surface border border-gray-200'
                 }`}
                 data-testid={`cta-tab-${key}`}
               >
@@ -632,15 +674,15 @@ const CtaSlide = () => {
           })}
         </div>
 
-        <div className="bg-white/5 border border-white/10 rounded-2xl p-5 sm:p-6 backdrop-blur-sm">
+        <div className="bg-obo-surface border border-gray-200 rounded-2xl p-5 sm:p-6">
           <div className="flex items-center justify-between mb-3">
-            <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/60">
+            <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-gray-500">
               // {tpl.subject}
             </p>
             <button
               onClick={copyTemplate}
               className={`inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-lg transition-all ${
-                copied ? 'bg-emerald-500 text-white' : 'bg-obo-primary text-white hover:bg-white hover:text-obo-primary'
+                copied ? 'bg-emerald-500 text-white' : 'bg-obo-primary text-white hover:bg-obo-dark'
               }`}
               data-testid="cta-copy-btn"
             >
@@ -652,7 +694,7 @@ const CtaSlide = () => {
             readOnly
             value={tpl.body}
             rows={12}
-            className="w-full bg-obo-dark/60 text-white/90 text-sm leading-relaxed font-mono p-4 rounded-xl border border-white/10 focus:border-obo-primary focus:outline-none resize-none"
+            className="w-full bg-white text-obo-dark text-sm leading-relaxed font-mono p-4 rounded-xl border border-gray-200 focus:border-obo-primary focus:outline-none resize-none"
             data-testid="cta-template-text"
           />
           <div className="mt-4 flex flex-col sm:flex-row gap-3">
@@ -660,7 +702,8 @@ const CtaSlide = () => {
               href={INSTAGRAM_DM}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-obo-primary text-white font-semibold px-6 py-3.5 rounded-xl hover:bg-white hover:text-obo-primary transition-all flex-1"
+              onClick={openInstagramDM}
+              className="inline-flex items-center justify-center gap-2 bg-obo-primary text-white font-semibold px-6 py-3.5 rounded-xl hover:bg-obo-dark transition-all flex-1"
               data-testid="cta-dm-btn"
             >
               <Instagram size={20} /> DM {INSTAGRAM_HANDLE} on Instagram
@@ -669,8 +712,8 @@ const CtaSlide = () => {
               href={INSTAGRAM_DM}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={copyTemplate}
-              className="inline-flex items-center justify-center gap-2 bg-white/10 text-white font-semibold px-6 py-3.5 rounded-xl hover:bg-white/20 transition-all border border-white/10"
+              onClick={(e) => { copyTemplate(); openInstagramDM(e); }}
+              className="inline-flex items-center justify-center gap-2 bg-white text-obo-dark font-semibold px-6 py-3.5 rounded-xl hover:bg-obo-surface transition-all border border-gray-200"
               data-testid="cta-copy-and-dm"
             >
               <Copy size={18} /> Copy + Open DM
@@ -678,7 +721,7 @@ const CtaSlide = () => {
           </div>
         </div>
 
-        <div className="mt-6 flex items-center justify-between flex-wrap gap-3 text-white/50 text-xs font-mono">
+        <div className="mt-6 flex items-center justify-between flex-wrap gap-3 text-gray-500 text-xs font-mono">
           <span className="flex items-center gap-1.5"><MapPin size={13} /> Fort Worth, Texas</span>
           <span>© {new Date().getFullYear()} OneByteOne · architected byte by byte</span>
         </div>
@@ -697,7 +740,15 @@ function App() {
     const deck = deckRef.current;
     if (!deck) return;
     const target = deck.querySelectorAll('.slide')[i];
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (!target) return;
+    // Use direct scrollTop for reliable top-of-slide lock on mobile
+    // (scrollIntoView + smooth can leave a few px gap on iOS Safari).
+    const top = target.offsetTop;
+    if (typeof deck.scrollTo === 'function') {
+      deck.scrollTo({ top, behavior: 'smooth' });
+    } else {
+      deck.scrollTop = top;
+    }
   }, []);
 
   useEffect(() => {
