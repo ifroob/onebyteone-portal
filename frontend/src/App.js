@@ -37,14 +37,14 @@ const openInstagramDM = (e) => {
 
 /* --------------------------------- SLIDES --------------------------------- */
 const SLIDES = [
-  { id: 'intro',      label: 'Intro' },
+  { id: 'intro',      label: 'Start' },
   { id: 'mission',    label: 'Mission' },
-  { id: 'architect',  label: 'Architect' },
-  { id: 'problem',    label: 'The Problem' },
-  { id: 'offerings',  label: 'Offerings' },
-  { id: 'audience',   label: 'Your Node' },
-  { id: 'next-steps', label: 'Next Steps' },
-  { id: 'cta',        label: 'Connect' },
+  { id: 'architect',  label: 'Founder' },
+  { id: 'problem',    label: 'Why We Exist' },
+  { id: 'offerings',  label: 'What We Do' },
+  { id: 'audience',   label: 'Who It\'s For' },
+  { id: 'next-steps', label: 'Free Resources' },
+  { id: 'cta',        label: 'Contact' },
 ];
 
 /* ------------------------------- NAVIGATION ------------------------------- */
@@ -145,10 +145,6 @@ const Slide = ({ id, children, className = '' }) => (
   </section>
 );
 
-/* Slide counter. On mobile it lives in the bottom-right corner so it can
-   never collide with centered hero content (fixes the “01/08 blocking the
-   // architecting futures byte by byte” overlap). On desktop it sits at
-   the top-left like before. */
 const SlideNumber = ({ n, total }) => (
   <div
     className="absolute bottom-4 right-4 sm:top-24 sm:left-8 sm:bottom-auto sm:right-auto
@@ -170,7 +166,7 @@ const IntroSlide = ({ goToSlide }) => (
       <div className="inline-flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full shadow-sm border border-white/10 mb-6">
         <span className="w-2 h-2 bg-obo-primary rounded-full animate-pulse"></span>
         <span className="text-sm text-white/85 font-mono tracking-wide">
-          // welcome · architecting futures, byte by byte
+          // open for projects + 1:1 mentorship
         </span>
       </div>
       <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-[1.02] mb-6 tracking-tight">
@@ -178,10 +174,10 @@ const IntroSlide = ({ goToSlide }) => (
         <span className="text-obo-primary">made approachable.</span>
       </h1>
       <p className="text-base sm:text-lg lg:text-xl text-white/75 mb-4 max-w-2xl mx-auto leading-relaxed">
-        Hey — glad you're here. OneByteOne is a small technology studio with two open doors.
+        OneByteOne is a small tech studio that builds production software for businesses and trains the next wave of engineers.
       </p>
       <p className="text-sm sm:text-base lg:text-lg text-white/65 mb-10 max-w-2xl mx-auto leading-relaxed">
-        Come in as a <span className="text-white font-medium">business</span> that needs custom software or infrastructure that actually ships. Come in as a <span className="text-white font-medium">learner or working pro</span> who wants honest mentorship and a real path into (or up through) tech. Same engineers. Same standard. No jargon walls — just pick your path and we'll meet you there.
+        Two doors, same engineers. <span className="text-white font-medium">Businesses</span> get custom software and cloud infrastructure that actually ships — no duct tape, no subscription tax. <span className="text-white font-medium">Learners and working pros</span> get honest 1:1 mentorship and a real path into (or up through) tech.
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <button
@@ -189,14 +185,14 @@ const IntroSlide = ({ goToSlide }) => (
           className="btn-primary text-base px-8 py-4"
           data-testid="intro-explore-btn"
         >
-          Start the Tour <ArrowRight size={20} className="ml-2 inline" />
+          See How We Work <ArrowRight size={20} className="ml-2 inline" />
         </button>
         <button
           onClick={() => goToSlide(SLIDES.length - 1)}
           className="btn-secondary text-base px-8 py-4"
           data-testid="intro-dm-btn"
         >
-          Skip to DM Us
+          Message Us on Instagram
         </button>
       </div>
     </div>
@@ -223,32 +219,32 @@ const MissionSlide = () => (
         Closing the gap between what tech can do — and <span className="text-obo-primary">who gets to use it</span>.
       </h2>
       <p className="text-gray-600 text-base sm:text-lg max-w-3xl leading-relaxed mb-4">
-        Whether you're a founder, a team lead, a student, or a career-switcher — the way tech gets built and taught today isn't serving most people well. We'd like to change that, one project and one person at a time.
+        The way technology gets built and taught today doesn't serve most people well. We're changing that — one project, one person at a time.
       </p>
 
       <div className="grid md:grid-cols-3 gap-6 mt-10">
         <div className="border-l-2 border-obo-primary pl-5">
-          <p className="text-obo-primary font-mono text-[11px] uppercase tracking-[0.2em] mb-2">// the why</p>
+          <p className="text-obo-primary font-mono text-[11px] uppercase tracking-[0.2em] mb-2">// why</p>
           <p className="text-gray-700 leading-relaxed">
-            Great engineering has been locked behind enterprise budgets and gatekept career paths for too long. Talent is everywhere; access and honest guidance aren't. We'd like to help close that distance.
+            Great engineering has been locked behind enterprise budgets and gatekept career paths for too long. Talent is everywhere; access isn't.
           </p>
         </div>
         <div className="border-l-2 border-obo-primary pl-5">
-          <p className="text-obo-primary font-mono text-[11px] uppercase tracking-[0.2em] mb-2">// the what</p>
+          <p className="text-obo-primary font-mono text-[11px] uppercase tracking-[0.2em] mb-2">// what</p>
           <p className="text-gray-700 leading-relaxed">
-            For businesses: production-grade systems that you actually own — no duct-tape, no subscription tax. For people: mentorship and real projects that move careers, not theory for the sake of theory.
+            For businesses: production-grade systems you actually own. For people: real mentorship on real projects — not theory, not filler.
           </p>
         </div>
         <div className="border-l-2 border-obo-primary pl-5">
-          <p className="text-obo-primary font-mono text-[11px] uppercase tracking-[0.2em] mb-2">// the stretch</p>
+          <p className="text-obo-primary font-mono text-[11px] uppercase tracking-[0.2em] mb-2">// long-term</p>
           <p className="text-gray-700 leading-relaxed">
-            Long-term, we want the leverage of modern tech to reach the people and communities it usually skips. We're trying to be an equalizer, not another gatekeeper — built byte by byte, with everyone welcome at the table.
+            We want the leverage of modern tech to reach the people and communities it usually skips. An equalizer, not another gatekeeper.
           </p>
         </div>
       </div>
 
       <div className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-obo-dark bg-obo-surface px-4 py-2 rounded-full border border-obo-primary/20">
-        <MapPin size={16} className="text-obo-primary" /> Based in Fort Worth, Texas · working with people everywhere
+        <MapPin size={16} className="text-obo-primary" /> Fort Worth, TX · Working with clients and learners worldwide
       </div>
     </div>
   </Slide>
@@ -261,7 +257,7 @@ const ArchitectSlide = () => (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full">
       <span className="text-obo-primary font-mono text-xs uppercase tracking-[0.3em]">// founder.profile</span>
       <h2 className="text-3xl sm:text-5xl font-bold text-white mt-3 mb-10 tracking-tight">
-        Brian Ta <span className="text-white/40 font-light">— Principal Architect</span>
+        Brian Ta <span className="text-white/40 font-light">— Founder & Lead Engineer</span>
       </h2>
       <div className="grid md:grid-cols-5 gap-8 items-center">
         <div className="md:col-span-2">
@@ -276,10 +272,10 @@ const ArchitectSlide = () => (
         </div>
         <div className="md:col-span-3">
           <p className="text-white/80 text-lg leading-relaxed mb-4">
-            8+ years across the full stack — software engineering, DevOps, and cloud architecture — inside <span className="font-semibold text-white">three+ Fortune 500</span> environments where uptime, security, and throughput are non-negotiable.
+            8+ years across the stack — software engineering, DevOps, and cloud architecture — most of it inside <span className="font-semibold text-white">three Fortune 500</span> environments where downtime costs money and security isn't optional.
           </p>
           <p className="text-white/65 leading-relaxed mb-6">
-            OneByteOne is that enterprise playbook, translated: lean high-velocity builds for businesses, no-BS roadmaps for engineers. Plain language for non-technical readers. Depth for the technical ones.
+            OneByteOne is that enterprise playbook, translated for the rest of us. Lean, fast builds for businesses. Honest, no-filler roadmaps for engineers. Plain language when you need it; technical depth when you don't.
           </p>
           <div className="grid grid-cols-3 gap-3 mb-6">
             <div className="bg-white/5 rounded-xl p-4 text-center border border-white/10">
@@ -287,16 +283,16 @@ const ArchitectSlide = () => (
               <div className="text-[10px] text-white/80 font-medium mt-1 uppercase tracking-wider">Years</div>
             </div>
             <div className="bg-white/5 rounded-xl p-4 text-center border border-white/10">
-              <div className="text-2xl sm:text-3xl font-bold text-obo-primary">3+</div>
+              <div className="text-2xl sm:text-3xl font-bold text-obo-primary">3</div>
               <div className="text-[10px] text-white/80 font-medium mt-1 uppercase tracking-wider">Fortune 500</div>
             </div>
             <div className="bg-white/5 rounded-xl p-4 text-center border border-white/10">
-              <div className="text-2xl sm:text-3xl font-bold text-obo-primary">3x</div>
-              <div className="text-[10px] text-white/80 font-medium mt-1 uppercase tracking-wider">Domains</div>
+              <div className="text-2xl sm:text-3xl font-bold text-obo-primary">F/S</div>
+              <div className="text-[10px] text-white/80 font-medium mt-1 uppercase tracking-wider">Full-Stack</div>
             </div>
           </div>
           <div className="flex flex-wrap gap-2">
-            {['Software Engineering', 'DevOps', 'Cloud Architecture', 'Systems Design', 'Mentorship'].map((tag) => (
+            {['Software Engineering', 'DevOps & CI/CD', 'Cloud Architecture (AWS/Azure/GCP)', 'Systems Design', '1:1 Mentorship'].map((tag) => (
               <span key={tag} className="text-[11px] font-mono px-2.5 py-1 rounded-full border border-obo-primary/40 text-obo-primary bg-white/5">
                 {tag}
               </span>
@@ -307,7 +303,7 @@ const ArchitectSlide = () => (
               { icon: Code2, label: 'Production architecture' },
               { icon: Cloud, label: 'Cloud-native infra' },
               { icon: Cpu, label: 'Systems that scale' },
-              { icon: Terminal, label: 'Mentorship that deploys' },
+              { icon: Terminal, label: 'Mentorship that ships' },
             ].map(({ icon: Icon, label }) => (
               <div key={label} className="flex items-center gap-2">
                 <Icon className="text-obo-primary flex-shrink-0" size={16} />
@@ -322,67 +318,71 @@ const ArchitectSlide = () => (
 );
 
 /* ----------------------------- 04 · THE PROBLEM (LIGHT) ------------------- */
-/* ----------------------------- 04 · THE PROBLEM (LIGHT) ------------------- */
 const ProblemSlide = () => {
   const sections = [
     {
       tag: '01',
-      title: 'The "First-Gen" Opportunity Gap',
-      intro: 'Where the system is most inefficient. First-gen students lack the institutional knowledge (social capital) legacy students inherit.',
+      title: 'The First-Gen Gap',
+      intro: 'First-generation grads start with the same diploma but a smaller network and less inherited know-how — and the data shows it.',
       points: [
         {
           hl: 'Mobility Myth',
           stat: 'Pew',
-          note: 'First-gen grads are significantly less likely to reach the top income quintile than continuing-gen peers — same degree, different outcome.',
+          note: 'First-gen grads are far less likely to reach the top income quintile than peers with the same degree.',
         },
         {
-          hl: 'Debt Burden',
+          hl: 'Debt, No Degree-Match',
           stat: '−27%',
-          note: 'NCES: first-gens carry higher debt yet have a 27% lower chance of landing a degree-relevant job within 4 years.',
+          note: 'First-gens carry higher debt and have a 27% lower chance of landing a degree-relevant job within 4 years. (NCES)',
         },
         {
           hl: 'Network Gap',
           stat: '9×',
-          note: 'LinkedIn: strong networks = 9× more likely to get hired. Technical sovereignty is the only bridge.',
+          note: 'A strong professional network makes someone roughly 9× more likely to get hired. (LinkedIn referral data)',
         },
       ],
     },
     {
       tag: '02',
-      title: 'The Underemployment Bug',
-      intro: 'The standard path is over-promising and under-delivering.',
+      title: 'Underemployment is the Rule',
+      intro: 'The standard college-to-career path is over-promising and under-delivering — and the longer you stay stuck, the harder it is to climb out.',
       points: [
         {
-          hl: 'The 52% Error',
+          hl: '52% Underemployed',
           stat: '52%',
-          note: 'Burning Glass (2024): recent grads underemployed one year after graduation.',
+          note: 'of recent grads are underemployed one year after graduation. (Burning Glass, 2024)',
         },
         {
-          hl: 'Stagnation Loop',
+          hl: 'The Stagnation Loop',
           stat: '70%',
-          note: 'Underemployed in job #1 → 70% chance still underemployed 5 years later.',
+          note: 'stuck in job #1 → 70% chance still underemployed five years later.',
         },
         {
-          hl: 'The Logic',
-          stat: '//',
-          note: 'Schools teach syntax (follow a curriculum). The market pays for architecture (solve business problems).',
+          hl: 'Why',
+          stat: '—',
+          note: 'Schools teach syntax. The market pays for solving real problems.',
         },
       ],
     },
     {
       tag: '03',
-      title: 'Manual Labor vs. Leverage',
-      intro: 'Why the business + strategist track exists.',
+      title: 'Businesses Leak Time and Money',
+      intro: 'That\'s why our business track exists — to plug the leaks with software you actually own.',
       points: [
         {
           hl: 'Time Tax',
-          stat: '2h/day',
-          note: 'WorkMarket: avg employee loses ~25% of the work week to manual, repeatable tasks that could be automated.',
+          stat: '~2h/day',
+          note: 'the average employee loses about a quarter of the work week to manual, repeatable tasks. (WorkMarket)',
         },
         {
           hl: 'SaaS Bloat',
-          stat: '$15K+',
-          note: 'BetterCloud: avg SMB SaaS spend / yr — 38% of those tools go unused or under-utilized.',
+          stat: '$15K+/yr',
+          note: 'average SMB software spend — and 38% of those subscriptions go unused. (BetterCloud)',
+        },
+        {
+          hl: 'Custom = Leverage',
+          stat: '1×',
+          note: 'One well-built internal tool can replace 5+ subscriptions and pay for itself inside a year.',
         },
       ],
     },
@@ -399,7 +399,7 @@ const ProblemSlide = () => {
           The traditional path is failing.
         </h2>
         <p className="text-gray-600 text-xs sm:text-base max-w-2xl mb-4 sm:mb-8 leading-snug">
-          Three bugs in the legacy system — diagnosed from the data.
+          Three things the data makes obvious — and what we're doing about them.
         </p>
 
         <div className="grid md:grid-cols-3 gap-3 sm:gap-4">
@@ -442,10 +442,10 @@ const ProblemSlide = () => {
 
         <div className="mt-4 sm:mt-8 bg-obo-cream rounded-2xl p-4 sm:p-6 border border-obo-primary/20">
           <p className="text-obo-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-1">
-            // our.solution
+            // our solution
           </p>
           <p className="text-sm sm:text-lg text-obo-dark font-semibold leading-snug">
-            We're not here to patch the system. We're here to rewrite it — with practical skills, real projects, and engineers who've shipped at scale.
+            We're not here to patch the system. We're here to rewrite it — with practical skills, real projects, and engineers who've actually shipped production code.
           </p>
         </div>
       </div>
@@ -456,26 +456,26 @@ const ProblemSlide = () => {
 /* ----------------------------- 05 · OFFERINGS (DARK) ---------------------- */
 const OfferingsSlide = ({ goToSlide }) => {
   const offerings = [
-    { icon: Briefcase,     title: 'For Businesses', subtitle: 'Deploy what you need',
-      description: 'Enterprise-grade engineering, delivered lean.',
-      features: ['Custom software, built to spec', 'DevOps, CI/CD & cloud infra', 'Architecture audits & strategy', 'Automation & integrations'], accent: 'border-obo-primary' },
-    { icon: GraduationCap, title: 'For Learners',   subtitle: 'From zero to deployable',
-      description: 'No-fluff mentorship on real projects.',
-      features: ['1-on-1 with a Fortune 500 engineer', 'Project-based, zero filler', 'Interview prep & portfolio', 'Career & offer strategy'], accent: 'border-obo-accent' },
-    { icon: Calendar,      title: 'Discovery Call', subtitle: '30-minute diagnostic',
-      description: 'Uncertain? Start here. Honest, actionable.',
-      features: ['Diagnose your current state', 'Identify real blockers', 'Personalized plan', 'No pitch, no commitment'], accent: 'border-obo-beige', highlight: true },
+    { icon: Briefcase,     title: 'For Businesses', subtitle: 'Software you actually own',
+      description: 'Enterprise-grade engineering, delivered lean and on a real timeline.',
+      features: ['Custom internal tools and apps, built to spec', 'DevOps, CI/CD, and cloud infrastructure', 'Architecture audits and technical strategy', 'Workflow automation and system integrations'], accent: 'border-obo-primary' },
+    { icon: GraduationCap, title: 'For Learners',   subtitle: 'From zero to your first (or next) offer',
+      description: '1:1 mentorship on real projects, not tutorials.',
+      features: ['Direct 1:1 with a Fortune 500 engineer', 'Project-based learning, zero filler', 'Portfolio and interview prep', 'Career strategy and offer negotiation'], accent: 'border-obo-accent' },
+    { icon: Calendar,      title: 'Free Discovery Call', subtitle: '30 minutes, no pitch',
+      description: 'Not sure where you fit? Start here.',
+      features: ['Honest read on where you are', 'The 1–2 things actually blocking you', 'A personalized next-step plan', 'Zero pressure to buy anything'], accent: 'border-obo-beige', highlight: true },
   ];
   return (
     <Slide id="offerings" className="bg-obo-dark">
       <SlideNumber n={5} total={SLIDES.length} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full">
-        <span className="text-obo-primary font-mono text-xs uppercase tracking-[0.3em]">// service.modules</span>
+        <span className="text-obo-primary font-mono text-xs uppercase tracking-[0.3em]">// what.we.do</span>
         <h2 className="text-3xl sm:text-5xl font-bold text-white mt-3 mb-3 tracking-tight">
-          Two vectors. One standard.
+          Two tracks. One standard.
         </h2>
         <p className="text-white/70 text-base sm:text-lg max-w-2xl mb-10">
-          Pick the track that matches where you are. We'll meet you there and accelerate from there.
+          Pick the track that fits where you are. We'll meet you there.
         </p>
         <div className="grid md:grid-cols-3 gap-5">
           {offerings.map((o, i) => (
@@ -530,29 +530,29 @@ const AUDIENCE = [
   {
     key: 'learner',
     tag: 'LEARNER',
-    arrow: 'Bypass the noise.',
+    arrow: 'Skip the noise. Get to the work.',
     icon: User,
-    profile: 'Students, career switchers, and junior devs stuck in "tutorial hell."',
-    pain: 'Feels like a "user" of tech rather than an architect. Drowning in generic roadmaps that don\'t lead to a job.',
-    win: 'Senior-level logic. Stop memorizing syntax, start understanding systems — and bypass traditional gatekeepers.',
+    profile: 'Students, career switchers, and junior devs stuck in tutorial loops.',
+    pain: 'Generic roadmaps that don\'t lead anywhere. Memorizing syntax instead of understanding how real systems are built.',
+    win: 'Think and build like a senior engineer. Get past the gatekeepers with a portfolio that actually proves it.',
   },
   {
     key: 'business',
     tag: 'BUSINESS',
-    arrow: 'Kill the manual labor.',
+    arrow: 'Stop paying the manual-work tax.',
     icon: Building2,
-    profile: 'Small to mid-sized business owners and department leads drowning in manual admin.',
-    pain: '"SaaS bloat" — 20 subscriptions that don\'t talk to each other — and 10+ hours a week lost to repetitive data tasks.',
-    win: 'Custom automation. Fortune-500-grade infrastructure built for your workflow — owned by you. No software tax.',
+    profile: 'Small and mid-sized business owners and team leads buried in repetitive admin.',
+    pain: 'SaaS bloat — a dozen subscriptions that don\'t talk to each other — and 10+ hours a week lost to copy-paste work.',
+    win: 'Custom automation and internal tools built for your workflow. Fortune-500-grade infrastructure, SMB-friendly delivery, fully owned by you.',
   },
   {
     key: 'strategist',
-    tag: 'STRATEGIST',
-    arrow: 'Own your time.',
+    tag: 'OPERATOR',
+    arrow: 'Buy back your time.',
     icon: Rocket,
-    profile: 'Working tech professionals and educators looking for high-leverage efficiency.',
-    pain: 'High-income but low-time. A "human bridge" for the company, looking to transition toward stealth-wealth or solo.',
-    win: 'Technical sovereignty. Blueprints to automate your current role or build a leveraged "Company of One."',
+    profile: 'Working tech pros, senior ICs, and educators who want more leverage from the same hours.',
+    pain: 'High income, no time. Stuck as the "human glue" holding processes together at work, with no margin to build anything of their own.',
+    win: 'Automate the parts of your job that drain you, or build a one-person business on the side. Either way, get hours back.',
   },
 ];
 
@@ -562,12 +562,12 @@ const AudienceSlide = () => {
     <Slide id="audience" className="bg-obo-warm-gray">
       <SlideNumber n={6} total={SLIDES.length} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full">
-        <span className="text-obo-primary font-mono text-xs uppercase tracking-[0.3em]">// target.audience</span>
+        <span className="text-obo-primary font-mono text-xs uppercase tracking-[0.3em]">// who.its.for</span>
         <h2 className="text-3xl sm:text-5xl font-bold text-obo-dark mt-3 mb-2 tracking-tight">
-          Identify your node.
+          Which one sounds like you?
         </h2>
         <p className="text-gray-600 text-base sm:text-lg max-w-2xl mb-8">
-          Three kinds of people walk through our door. Hover or tap a card to see how we engineer the win.
+          Three kinds of people show up here. Tap a card to see how we'd help.
         </p>
         <div className="grid md:grid-cols-3 gap-4">
           {AUDIENCE.map((a) => {
@@ -626,19 +626,19 @@ const AudienceSlide = () => {
 /* ----------------------------- 07 · NEXT STEPS (DARK) --------------------- */
 const NextStepsSlide = () => {
   const roadmaps = [
-    { tag: 'BUILD',   title: '6-Week Tech Roadmap',          desc: 'Weekly milestones from curious to shipping production code.' },
-    { tag: 'MINDSET', title: '14-Day Tech Mindset Blueprint',desc: 'Two-week OS for how to think and iterate like an engineer who deploys.' },
+    { tag: 'BUILD',   title: '6-Week Tech Roadmap',     desc: 'Week-by-week milestones to take you from "I\'m curious" to shipping a real project.' },
+    { tag: 'MINDSET', title: '14-Day Engineer Mindset', desc: 'Two weeks of daily habits and frameworks for thinking like an engineer who actually finishes things.' },
   ];
   return (
     <Slide id="next-steps" className="bg-obo-dark">
       <SlideNumber n={7} total={SLIDES.length} />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 w-full">
-        <span className="text-obo-primary font-mono text-xs uppercase tracking-[0.3em]">// next.steps</span>
+        <span className="text-obo-primary font-mono text-xs uppercase tracking-[0.3em]">// free.resources</span>
         <h2 className="text-3xl sm:text-5xl font-bold text-white mt-3 mb-3 tracking-tight">
-          Initialize with the blueprint.
+          Start with a free blueprint.
         </h2>
         <p className="text-white/70 text-base sm:text-lg max-w-2xl mb-8">
-          Two free roadmaps. Zero fluff. DM us on Instagram with your name and which one you want — we'll transmit it over.
+          Two roadmaps, zero fluff. DM us on Instagram with your name and which one you want — we'll send it over.
         </p>
         <div className="grid md:grid-cols-2 gap-5 mb-8">
           {roadmaps.map((r, i) => (
@@ -665,7 +665,7 @@ const NextStepsSlide = () => {
           ))}
         </div>
         <div className="bg-white/5 rounded-xl p-4 border border-white/10 text-sm text-white/75 font-mono">
-          {'> '}include your <span className="text-obo-primary font-semibold">name</span> + <span className="text-obo-primary font-semibold">which roadmap</span>. We'll handle the rest.
+          {'> '}include your <span className="text-obo-primary font-semibold">name</span> + <span className="text-obo-primary font-semibold">which roadmap</span>. We'll do the rest.
         </div>
       </div>
     </Slide>
@@ -681,16 +681,16 @@ const TEMPLATES = {
     body:
 `Hey OneByteOne — I\'m [Your Name].
 
-I\'m trying to break into tech (or level up from junior) and I\'m stuck in tutorial loops. I want senior-level logic, not more syntax memorization.
+I\'m trying to break into tech (or level up from a junior role) and I keep getting stuck in tutorial loops. I want to learn how senior engineers actually think, not just memorize syntax.
 
-Where I\'m at:
-• [current role / what you\'re studying]
+Where I am:
+• [current role or what you\'re studying]
 • [what you\'ve tried so far]
 
 What I want:
-• [land first / next role | build a real project | map out a 6-week plan]
+• [land my first role | level up to mid/senior | build a real portfolio project | map out a 6-week plan]
 
-Can we do a quick discovery call? Thanks.`
+Can we set up a quick discovery call? Thanks.`
   },
   business: {
     label: 'I\'m a Business',
@@ -699,32 +699,33 @@ Can we do a quick discovery call? Thanks.`
     body:
 `Hey OneByteOne — I\'m [Your Name] at [Company].
 
-We\'re drowning in SaaS bloat and manual admin. Looking for custom automation we actually own, not another subscription.
+We\'re losing too many hours a week to manual admin and a stack of SaaS tools that don\'t talk to each other. We\'d rather invest in something we own than pay another subscription.
 
-Our stack today:
-• [tools / workflows causing pain]
-• [roughly __ hours/week lost to it]
+Where we are today:
+• [tools or workflows causing the most pain]
+• [roughly __ hours per week lost to them]
+• [team size, if relevant]
 
-What we need:
-• [internal tool | automation | cloud setup | architecture audit]
+What we\'re exploring:
+• [internal tool | workflow automation | cloud setup | architecture audit]
 
-Open to a 30-min diagnostic call? Thanks.`
+Open to a free 30-minute call? Thanks.`
   },
   strategist: {
-    label: 'I\'m a Strategist',
+    label: 'I\'m an Operator',
     icon: Rocket,
     subject: 'For working pros, educators, solopreneurs',
     body:
 `Hey OneByteOne — I\'m [Your Name].
 
-I\'m a [role] and I\'m high-income / low-time. I want to reclaim leverage — either automate my current role or build a "Company of One."
+I\'m a [role] — high income, no time. I want to buy back hours by automating the parts of my job that drain me, or by starting a one-person side business.
 
 Context:
 • [what you do now]
-• [what\'s eating your time]
+• [the work that\'s eating your hours]
 
 Goal:
-• [technical sovereignty | ship a side-venture | productize expertise]
+• [automate my current role | ship a side project | turn my expertise into a product]
 
 Would love to compare notes. Thanks.`
   },
@@ -753,12 +754,12 @@ const CtaSlide = () => {
     <Slide id="cta" className="bg-obo-cream">
       <SlideNumber n={8} total={SLIDES.length} />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 w-full py-24">
-        <span className="text-obo-primary font-mono text-xs uppercase tracking-[0.3em]">// establish.connection</span>
+        <span className="text-obo-primary font-mono text-xs uppercase tracking-[0.3em]">// let's talk</span>
         <h2 className="text-3xl sm:text-5xl font-bold text-obo-dark mt-3 mb-3 tracking-tight">
-          Ready to initialize?
+          Ready to talk?
         </h2>
         <p className="text-gray-600 text-base sm:text-lg max-w-2xl mb-8">
-          Pick your node. Copy the template. DM us on Instagram. One message, one plan, zero overhead.
+          Pick the track that fits, copy the template, and DM us on Instagram. One message, one plan, zero overhead.
         </p>
 
         <div className="flex flex-wrap gap-2 mb-5" role="tablist">
@@ -833,7 +834,7 @@ const CtaSlide = () => {
 
         <div className="mt-6 flex items-center justify-between flex-wrap gap-3 text-gray-500 text-xs font-mono">
           <span className="flex items-center gap-1.5"><MapPin size={13} /> Fort Worth, Texas</span>
-          <span>© {new Date().getFullYear()} OneByteOne · architected byte by byte</span>
+          <span>© {new Date().getFullYear()} OneByteOne · built byte by byte</span>
         </div>
       </div>
     </Slide>
@@ -851,8 +852,6 @@ function App() {
     if (!deck) return;
     const target = deck.querySelectorAll('.slide')[i];
     if (!target) return;
-    // Use direct scrollTop for reliable top-of-slide lock on mobile
-    // (scrollIntoView + smooth can leave a few px gap on iOS Safari).
     const top = target.offsetTop;
     if (typeof deck.scrollTo === 'function') {
       deck.scrollTo({ top, behavior: 'smooth' });
