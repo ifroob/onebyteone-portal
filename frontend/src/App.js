@@ -161,6 +161,7 @@ const SlideNumber = ({ n, total }) => (
   </div>
 );
 
+
 /* ------------------------------- 01 · INTRO (DARK) ------------------------- */
 const IntroSlide = ({ goToSlide }) => (
   <Slide id="intro" className="bg-obo-dark">
@@ -168,20 +169,33 @@ const IntroSlide = ({ goToSlide }) => (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full text-center">
       <div className="inline-flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full shadow-sm border border-white/10 mb-6">
         <span className="w-2 h-2 bg-obo-primary rounded-full animate-pulse"></span>
-        <span className="text-sm text-white/85 font-mono tracking-wide">// architecting futures · byte by byte</span>
+        <span className="text-sm text-white/85 font-mono tracking-wide">
+          // welcome · architecting futures, byte by byte
+        </span>
       </div>
       <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-[1.02] mb-6 tracking-tight">
-        Precision-engineered outcomes.<br />
-        <span className="text-obo-primary">Tactical paths into tech.</span>
+        Real engineering,<br />
+        <span className="text-obo-primary">made approachable.</span>
       </h1>
-      <p className="text-lg sm:text-xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed">
-        A dual-vector technology firm. We build production-grade systems for businesses and high-leverage skill blueprints for people breaking into tech.
+      <p className="text-base sm:text-lg lg:text-xl text-white/75 mb-4 max-w-2xl mx-auto leading-relaxed">
+        Hey — glad you're here. OneByteOne is a small technology studio with two open doors.
+      </p>
+      <p className="text-sm sm:text-base lg:text-lg text-white/65 mb-10 max-w-2xl mx-auto leading-relaxed">
+        Come in as a <span className="text-white font-medium">business</span> that needs custom software or infrastructure that actually ships. Come in as a <span className="text-white font-medium">learner or working pro</span> who wants honest mentorship and a real path into (or up through) tech. Same engineers. Same standard. No jargon walls — just pick your path and we'll meet you there.
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <button onClick={() => goToSlide(1)} className="btn-primary text-base px-8 py-4" data-testid="intro-explore-btn">
+        <button
+          onClick={() => goToSlide(1)}
+          className="btn-primary text-base px-8 py-4"
+          data-testid="intro-explore-btn"
+        >
           Start the Tour <ArrowRight size={20} className="ml-2 inline" />
         </button>
-        <button onClick={() => goToSlide(SLIDES.length - 1)} className="btn-secondary text-base px-8 py-4" data-testid="intro-dm-btn">
+        <button
+          onClick={() => goToSlide(SLIDES.length - 1)}
+          className="btn-secondary text-base px-8 py-4"
+          data-testid="intro-dm-btn"
+        >
           Skip to DM Us
         </button>
       </div>
@@ -202,32 +216,39 @@ const MissionSlide = () => (
   <Slide id="mission" className="bg-obo-cream">
     <SlideNumber n={2} total={SLIDES.length} />
     <div className="max-w-5xl mx-auto px-4 sm:px-6 w-full">
-      <span className="text-obo-primary font-mono text-xs uppercase tracking-[0.3em]">// mission.statement</span>
-      <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-obo-dark mt-4 mb-8 leading-[1.05] tracking-tight">
-        Close the gap between <span className="text-obo-primary">demand</span> and <span className="text-obo-primary">capability</span>.
+      <span className="text-obo-primary font-mono text-xs uppercase tracking-[0.3em]">
+        // mission.statement
+      </span>
+      <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-obo-dark mt-4 mb-5 leading-[1.05] tracking-tight">
+        Closing the gap between what tech can do — and <span className="text-obo-primary">who gets to use it</span>.
       </h2>
-      <div className="grid md:grid-cols-3 gap-6 mt-12">
+      <p className="text-gray-600 text-base sm:text-lg max-w-3xl leading-relaxed mb-4">
+        Whether you're a founder, a team lead, a student, or a career-switcher — the way tech gets built and taught today isn't serving most people well. We'd like to change that, one project and one person at a time.
+      </p>
+
+      <div className="grid md:grid-cols-3 gap-6 mt-10">
         <div className="border-l-2 border-obo-primary pl-5">
           <p className="text-obo-primary font-mono text-[11px] uppercase tracking-[0.2em] mb-2">// the why</p>
           <p className="text-gray-700 leading-relaxed">
-            Elite-tier engineering shouldn't sit behind a paywall. Talent is everywhere; access isn't.
+            Great engineering has been locked behind enterprise budgets and gatekept career paths for too long. Talent is everywhere; access and honest guidance aren't. We'd like to help close that distance.
           </p>
         </div>
         <div className="border-l-2 border-obo-primary pl-5">
           <p className="text-obo-primary font-mono text-[11px] uppercase tracking-[0.2em] mb-2">// the what</p>
           <p className="text-gray-700 leading-relaxed">
-            Ship real systems for businesses. Train real skills for people. No filler, no theory theater.
+            For businesses: production-grade systems that you actually own — no duct-tape, no subscription tax. For people: mentorship and real projects that move careers, not theory for the sake of theory.
           </p>
         </div>
         <div className="border-l-2 border-obo-primary pl-5">
           <p className="text-obo-primary font-mono text-[11px] uppercase tracking-[0.2em] mb-2">// the stretch</p>
           <p className="text-gray-700 leading-relaxed">
-            Long-term: give underserved communities the leverage tech can provide. Equalizer, not gatekeeper.
+            Long-term, we want the leverage of modern tech to reach the people and communities it usually skips. We're trying to be an equalizer, not another gatekeeper — built byte by byte, with everyone welcome at the table.
           </p>
         </div>
       </div>
-      <div className="mt-12 inline-flex items-center gap-2 text-sm font-medium text-obo-dark bg-obo-surface px-4 py-2 rounded-full border border-obo-primary/20">
-        <MapPin size={16} className="text-obo-primary" /> Operating from Fort Worth, Texas
+
+      <div className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-obo-dark bg-obo-surface px-4 py-2 rounded-full border border-obo-primary/20">
+        <MapPin size={16} className="text-obo-primary" /> Based in Fort Worth, Texas · working with people everywhere
       </div>
     </div>
   </Slide>
@@ -301,40 +322,129 @@ const ArchitectSlide = () => (
 );
 
 /* ----------------------------- 04 · THE PROBLEM (LIGHT) ------------------- */
+/* ----------------------------- 04 · THE PROBLEM (LIGHT) ------------------- */
 const ProblemSlide = () => {
-  const problems = [
-    { icon: TrendingUp, stat: '$1.7T', label: 'Student Debt',        title: 'Education debt trap',  note: '52% of grads are underemployed within a year.' },
-    { icon: Users,      stat: '62→43%', label: 'Middle-Class Share', title: 'The squeeze',          note: 'Wages flat since the 70s while productivity surged.' },
-    { icon: Shield,     stat: '44%',   label: 'Skills Disrupted',    title: 'Skills gap',           note: 'Most people are trained as "users" of tech, not architects.' },
-    { icon: Brain,      stat: '60%',   label: 'Emotionally Detached',title: 'Work burnout',         note: 'Looking busy has replaced shipping real outcomes.' },
+  const sections = [
+    {
+      tag: '01',
+      title: 'The "First-Gen" Opportunity Gap',
+      intro: 'Where the system is most inefficient. First-gen students lack the institutional knowledge (social capital) legacy students inherit.',
+      points: [
+        {
+          hl: 'Mobility Myth',
+          stat: 'Pew',
+          note: 'First-gen grads are significantly less likely to reach the top income quintile than continuing-gen peers — same degree, different outcome.',
+        },
+        {
+          hl: 'Debt Burden',
+          stat: '−27%',
+          note: 'NCES: first-gens carry higher debt yet have a 27% lower chance of landing a degree-relevant job within 4 years.',
+        },
+        {
+          hl: 'Network Gap',
+          stat: '9×',
+          note: 'LinkedIn: strong networks = 9× more likely to get hired. Technical sovereignty is the only bridge.',
+        },
+      ],
+    },
+    {
+      tag: '02',
+      title: 'The Underemployment Bug',
+      intro: 'The standard path is over-promising and under-delivering.',
+      points: [
+        {
+          hl: 'The 52% Error',
+          stat: '52%',
+          note: 'Burning Glass (2024): recent grads underemployed one year after graduation.',
+        },
+        {
+          hl: 'Stagnation Loop',
+          stat: '70%',
+          note: 'Underemployed in job #1 → 70% chance still underemployed 5 years later.',
+        },
+        {
+          hl: 'The Logic',
+          stat: '//',
+          note: 'Schools teach syntax (follow a curriculum). The market pays for architecture (solve business problems).',
+        },
+      ],
+    },
+    {
+      tag: '03',
+      title: 'Manual Labor vs. Leverage',
+      intro: 'Why the business + strategist track exists.',
+      points: [
+        {
+          hl: 'Time Tax',
+          stat: '2h/day',
+          note: 'WorkMarket: avg employee loses ~25% of the work week to manual, repeatable tasks that could be automated.',
+        },
+        {
+          hl: 'SaaS Bloat',
+          stat: '$15K+',
+          note: 'BetterCloud: avg SMB SaaS spend / yr — 38% of those tools go unused or under-utilized.',
+        },
+      ],
+    },
   ];
+
   return (
     <Slide id="problem" className="bg-obo-warm-gray">
       <SlideNumber n={4} total={SLIDES.length} />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full">
-        <span className="text-obo-primary font-mono text-xs uppercase tracking-[0.3em]">// system.diagnosis</span>
-        <h2 className="text-3xl sm:text-5xl font-bold text-obo-dark mt-3 mb-3 tracking-tight">
+        <span className="text-obo-primary font-mono text-[10px] sm:text-xs uppercase tracking-[0.3em]">
+          // system.diagnosis
+        </span>
+        <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-obo-dark mt-2 mb-2 tracking-tight leading-[1.1]">
           The traditional path is failing.
         </h2>
-        <p className="text-gray-600 text-base sm:text-lg max-w-2xl mb-10">
-          Four bugs in the legacy system. We diagnosed them. That's why OneByteOne exists.
+        <p className="text-gray-600 text-xs sm:text-base max-w-2xl mb-4 sm:mb-8 leading-snug">
+          Three bugs in the legacy system — diagnosed from the data.
         </p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {problems.map((p, i) => (
-            <div key={i} className="bg-obo-cream rounded-2xl p-5 border border-gray-200/60 card-hover">
-              <div className="w-10 h-10 bg-obo-light rounded-lg flex items-center justify-center mb-3">
-                <p.icon className="text-obo-primary" size={20} />
+
+        <div className="grid md:grid-cols-3 gap-3 sm:gap-4">
+          {sections.map((s) => (
+            <div
+              key={s.tag}
+              className="bg-obo-cream rounded-2xl p-4 sm:p-5 border border-gray-200/60 card-hover"
+              data-testid={`problem-section-${s.tag}`}
+            >
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="text-[10px] font-mono text-obo-primary tracking-[0.2em]">// {s.tag}</span>
+                <span className="flex-1 h-px bg-obo-primary/20" />
               </div>
-              <div className="text-2xl font-bold text-obo-primary">{p.stat}</div>
-              <div className="text-[10px] font-mono text-gray-500 uppercase tracking-wider mb-3">{p.label}</div>
-              <h3 className="text-base font-bold text-obo-dark mb-2 tracking-tight">{p.title}</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">{p.note}</p>
+              <h3 className="text-sm sm:text-base font-bold text-obo-dark mb-1.5 leading-snug tracking-tight">
+                {s.title}
+              </h3>
+              <p className="text-[11px] sm:text-xs text-gray-600 leading-snug mb-3">
+                {s.intro}
+              </p>
+              <ul className="space-y-2">
+                {s.points.map((p, i) => (
+                  <li key={i} className="border-l-2 border-obo-primary/60 pl-2.5">
+                    <div className="flex items-baseline justify-between gap-2">
+                      <span className="text-[11px] sm:text-xs font-semibold text-obo-dark leading-tight">
+                        {p.hl}
+                      </span>
+                      <span className="text-[11px] sm:text-xs font-bold text-obo-primary font-mono whitespace-nowrap">
+                        {p.stat}
+                      </span>
+                    </div>
+                    <p className="text-[10px] sm:text-[11px] text-gray-600 leading-snug mt-0.5">
+                      {p.note}
+                    </p>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
-        <div className="mt-10 bg-obo-cream rounded-2xl p-6 sm:p-7 border border-obo-primary/20">
-          <p className="text-obo-primary font-mono text-[11px] uppercase tracking-[0.2em] mb-1">// our.solution</p>
-          <p className="text-lg sm:text-xl text-obo-dark font-semibold leading-snug">
+
+        <div className="mt-4 sm:mt-8 bg-obo-cream rounded-2xl p-4 sm:p-6 border border-obo-primary/20">
+          <p className="text-obo-primary font-mono text-[10px] uppercase tracking-[0.2em] mb-1">
+            // our.solution
+          </p>
+          <p className="text-sm sm:text-lg text-obo-dark font-semibold leading-snug">
             We're not here to patch the system. We're here to rewrite it — with practical skills, real projects, and engineers who've shipped at scale.
           </p>
         </div>
