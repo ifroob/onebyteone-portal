@@ -16,18 +16,15 @@ const isMobileUA = () =>
   /iPhone|iPad|iPod|Android/i.test(navigator.userAgent || '');
 
 const openInstagramDM = (e) => {
-  if (!isMobileUA()) return; // let <a target="_blank"> handle desktop
+  if (!isMobileUA()) return;
   if (e && e.preventDefault) e.preventDefault();
-  // Try the app via custom scheme first (opens Instagram app profile, user taps Message).
   const appUrl = `instagram://user?username=${INSTAGRAM_USERNAME}`;
   const startedAt = Date.now();
-  // Fallback to the official ig.me DM universal link if the app didn't take over.
   const fallback = setTimeout(() => {
     if (Date.now() - startedAt < 2500 && document.visibilityState === 'visible') {
       window.location.href = INSTAGRAM_DM;
     }
   }, 1200);
-  // Hide the fallback if the app actually opened (page gets backgrounded).
   const cancel = () => {
     if (document.visibilityState === 'hidden') clearTimeout(fallback);
   };
@@ -38,7 +35,7 @@ const openInstagramDM = (e) => {
 /* --------------------------------- SLIDES --------------------------------- */
 const SLIDES = [
   { id: 'intro',      label: 'Start' },
-  { id: 'mission',    label: 'Mission' },
+  { id: 'mission',    label: 'Our Thesis' },
   { id: 'architect',  label: 'Founder' },
   { id: 'problem',    label: 'Why We Exist' },
   { id: 'offerings',  label: 'What We Do' },
@@ -173,6 +170,9 @@ const IntroSlide = ({ goToSlide }) => (
         Real engineering,<br />
         <span className="text-obo-primary">made approachable.</span>
       </h1>
+      <p className="text-sm sm:text-base lg:text-lg text-white/55 mb-3 max-w-2xl mx-auto leading-relaxed italic">
+        We're closing the understanding gap that the digital economy keeps widening.
+      </p>
       <p className="text-base sm:text-lg lg:text-xl text-white/75 mb-4 max-w-2xl mx-auto leading-relaxed">
         OneByteOne is a small tech studio that builds production software for businesses and trains the next wave of engineers.
       </p>
@@ -207,45 +207,95 @@ const IntroSlide = ({ goToSlide }) => (
   </Slide>
 );
 
-/* ------------------------------ 02 · MISSION (LIGHT) ---------------------- */
+/* ------------------------------ 02 · MISSION / MANIFESTO (LIGHT) ---------- */
 const MissionSlide = () => (
   <Slide id="mission" className="bg-obo-cream">
     <SlideNumber n={2} total={SLIDES.length} />
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 w-full">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 w-full py-20">
+
+      {/* --- HOOK --- */}
       <span className="text-obo-primary font-mono text-xs uppercase tracking-[0.3em]">
-        // mission.statement
+        // the.thesis
       </span>
-      <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-obo-dark mt-4 mb-5 leading-[1.05] tracking-tight">
-        Closing the gap between what tech can do — and <span className="text-obo-primary">who gets to use it</span>.
+      <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-obo-dark mt-4 mb-6 leading-[1.08] tracking-tight">
+        Most people think the digital divide is about{' '}
+        <span className="text-gray-400 line-through decoration-2 decoration-obo-primary/60">access to technology</span>.
+        <br className="hidden sm:block" />{' '}
+        It's about <span className="text-obo-primary">understanding how modern systems actually work</span>.
       </h2>
-      <p className="text-gray-600 text-base sm:text-lg max-w-3xl leading-relaxed mb-4">
-        The way technology gets built and taught today doesn't serve most people well. We're changing that — one project, one person at a time.
+      <p className="text-gray-600 text-base sm:text-lg max-w-3xl leading-relaxed mb-12">
+        That single shift in framing changes everything we build, who we build it for, and how we teach it.
       </p>
 
-      <div className="grid md:grid-cols-3 gap-6 mt-10">
-        <div className="border-l-2 border-obo-primary pl-5">
-          <p className="text-obo-primary font-mono text-[11px] uppercase tracking-[0.2em] mb-2">// why</p>
-          <p className="text-gray-700 leading-relaxed">
-            Great engineering has been locked behind enterprise budgets and gatekept career paths for too long. Talent is everywhere; access isn't.
-          </p>
-        </div>
-        <div className="border-l-2 border-obo-primary pl-5">
-          <p className="text-obo-primary font-mono text-[11px] uppercase tracking-[0.2em] mb-2">// what</p>
-          <p className="text-gray-700 leading-relaxed">
-            For businesses: production-grade systems you actually own. For people: real mentorship on real projects — not theory, not filler.
-          </p>
-        </div>
-        <div className="border-l-2 border-obo-primary pl-5">
-          <p className="text-obo-primary font-mono text-[11px] uppercase tracking-[0.2em] mb-2">// long-term</p>
-          <p className="text-gray-700 leading-relaxed">
-            We want the leverage of modern tech to reach the people and communities it usually skips. An equalizer, not another gatekeeper.
-          </p>
+      {/* --- PROBLEM --- */}
+      <div className="border-l-2 border-obo-primary/50 pl-5 mb-10">
+        <p className="text-obo-primary font-mono text-[11px] uppercase tracking-[0.2em] mb-2">// the gap</p>
+        <p className="text-obo-dark text-base sm:text-lg leading-relaxed font-medium mb-3">
+          There's a growing gap between people who can <em>use</em> digital tools — and people who understand how those systems are built, automated, and scaled.
+        </p>
+        <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+          Businesses are still losing time and money to manual processes that could be automated. Most learners are either overwhelmed by tech or taught isolated skills with no sense of how they connect in the real world.
+        </p>
+      </div>
+
+      {/* --- SOLUTION --- */}
+      <div className="border-l-2 border-obo-primary/50 pl-5 mb-10">
+        <p className="text-obo-primary font-mono text-[11px] uppercase tracking-[0.2em] mb-2">// where we sit</p>
+        <p className="text-obo-dark text-base sm:text-lg leading-relaxed font-medium mb-4">
+          OneByteOne sits at the intersection of both problems.
+        </p>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div className="bg-white/60 border border-gray-200/70 rounded-xl p-4">
+            <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-obo-primary mb-1.5">For businesses</p>
+            <p className="text-gray-700 text-sm leading-relaxed">
+              We identify inefficiencies and build simple automation and digital systems that reduce manual work and sharpen operations.
+            </p>
+          </div>
+          <div className="bg-white/60 border border-gray-200/70 rounded-xl p-4">
+            <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-obo-primary mb-1.5">For learners & career switchers</p>
+            <p className="text-gray-700 text-sm leading-relaxed">
+              We break modern tech into practical, real-world understanding — how cloud, automation, and software actually work together. Not theory. Not syntax for the sake of it.
+            </p>
+          </div>
         </div>
       </div>
 
+      {/* --- APPROACH --- */}
+      <div className="border-l-2 border-obo-primary/50 pl-5 mb-10">
+        <p className="text-obo-primary font-mono text-[11px] uppercase tracking-[0.2em] mb-2">// our approach</p>
+        <p className="text-obo-dark text-base sm:text-lg leading-relaxed font-medium mb-2">
+          We don't teach tech as isolated tools.
+        </p>
+        <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+          We teach how systems <em>connect</em> — how modern software, cloud platforms, and automation actually function in real production environments.
+        </p>
+      </div>
+
+      {/* --- MISSION --- */}
+      <div className="border-l-2 border-obo-primary/50 pl-5 mb-10">
+        <p className="text-obo-primary font-mono text-[11px] uppercase tracking-[0.2em] mb-2">// long-term</p>
+        <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+          The goal is simple: make technical understanding more accessible — especially for people who don't traditionally get exposure to it. Students, career switchers, and small businesses being left behind by rapid digital change.
+        </p>
+      </div>
+
+      {/* --- CLOSE --- */}
+      <div className="bg-obo-dark rounded-2xl p-6 sm:p-8 border border-obo-primary/30 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-obo-primary/10 rounded-full blur-3xl pointer-events-none" />
+        <p className="text-obo-primary font-mono text-[10px] uppercase tracking-[0.3em] mb-3 relative">// the close</p>
+        <p className="text-white text-lg sm:text-2xl leading-snug font-semibold mb-3 relative tracking-tight">
+          We're not selling hype or shortcuts. We're building <span className="text-obo-primary">clarity</span> in a space that's become overloaded with noise.
+        </p>
+        <p className="text-white/75 text-sm sm:text-base leading-relaxed relative italic">
+          If you understand how the system works, you don't just use it — you can actually build with it.
+        </p>
+      </div>
+
+      {/* --- LOCATION PILL --- */}
       <div className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-obo-dark bg-obo-surface px-4 py-2 rounded-full border border-obo-primary/20">
         <MapPin size={16} className="text-obo-primary" /> Fort Worth, TX · Working with clients and learners worldwide
       </div>
+
     </div>
   </Slide>
 );
@@ -325,21 +375,9 @@ const ProblemSlide = () => {
       title: 'The First-Gen Gap',
       intro: 'First-generation grads start with the same diploma but a smaller network and less inherited know-how — and the data shows it.',
       points: [
-        {
-          hl: 'Mobility Myth',
-          stat: 'Pew',
-          note: 'First-gen grads are far less likely to reach the top income quintile than peers with the same degree.',
-        },
-        {
-          hl: 'Debt, No Degree-Match',
-          stat: '−27%',
-          note: 'First-gens carry higher debt and have a 27% lower chance of landing a degree-relevant job within 4 years. (NCES)',
-        },
-        {
-          hl: 'Network Gap',
-          stat: '9×',
-          note: 'A strong professional network makes someone roughly 9× more likely to get hired. (LinkedIn referral data)',
-        },
+        { hl: 'Mobility Myth', stat: 'Pew', note: 'First-gen grads are far less likely to reach the top income quintile than peers with the same degree.' },
+        { hl: 'Debt, No Degree-Match', stat: '−27%', note: 'First-gens carry higher debt and have a 27% lower chance of landing a degree-relevant job within 4 years. (NCES)' },
+        { hl: 'Network Gap', stat: '9×', note: 'A strong professional network makes someone roughly 9× more likely to get hired. (LinkedIn referral data)' },
       ],
     },
     {
@@ -347,21 +385,9 @@ const ProblemSlide = () => {
       title: 'Underemployment is the Rule',
       intro: 'The standard college-to-career path is over-promising and under-delivering — and the longer you stay stuck, the harder it is to climb out.',
       points: [
-        {
-          hl: '52% Underemployed',
-          stat: '52%',
-          note: 'of recent grads are underemployed one year after graduation. (Burning Glass, 2024)',
-        },
-        {
-          hl: 'The Stagnation Loop',
-          stat: '70%',
-          note: 'stuck in job #1 → 70% chance still underemployed five years later.',
-        },
-        {
-          hl: 'Why',
-          stat: '—',
-          note: 'Schools teach syntax. The market pays for solving real problems.',
-        },
+        { hl: '52% Underemployed', stat: '52%', note: 'of recent grads are underemployed one year after graduation. (Burning Glass, 2024)' },
+        { hl: 'The Stagnation Loop', stat: '70%', note: 'stuck in job #1 → 70% chance still underemployed five years later.' },
+        { hl: 'Why', stat: '—', note: 'Schools teach syntax. The market pays for solving real problems.' },
       ],
     },
     {
@@ -369,21 +395,9 @@ const ProblemSlide = () => {
       title: 'Businesses Leak Time and Money',
       intro: 'That\'s why our business track exists — to plug the leaks with software you actually own.',
       points: [
-        {
-          hl: 'Time Tax',
-          stat: '~2h/day',
-          note: 'the average employee loses about a quarter of the work week to manual, repeatable tasks. (WorkMarket)',
-        },
-        {
-          hl: 'SaaS Bloat',
-          stat: '$15K+/yr',
-          note: 'average SMB software spend — and 38% of those subscriptions go unused. (BetterCloud)',
-        },
-        {
-          hl: 'Custom = Leverage',
-          stat: '1×',
-          note: 'One well-built internal tool can replace 5+ subscriptions and pay for itself inside a year.',
-        },
+        { hl: 'Time Tax', stat: '~2h/day', note: 'the average employee loses about a quarter of the work week to manual, repeatable tasks. (WorkMarket)' },
+        { hl: 'SaaS Bloat', stat: '$15K+/yr', note: 'average SMB software spend — and 38% of those subscriptions go unused. (BetterCloud)' },
+        { hl: 'Custom = Leverage', stat: '1×', note: 'One well-built internal tool can replace 5+ subscriptions and pay for itself inside a year.' },
       ],
     },
   ];
@@ -456,13 +470,13 @@ const ProblemSlide = () => {
 /* ----------------------------- 05 · OFFERINGS (DARK) ---------------------- */
 const OfferingsSlide = ({ goToSlide }) => {
   const offerings = [
-    { icon: Briefcase,     title: 'For Businesses', subtitle: 'Software you actually own',
+    { icon: Briefcase, title: 'For Businesses', subtitle: 'Software you actually own',
       description: 'Enterprise-grade engineering, delivered lean and on a real timeline.',
       features: ['Custom internal tools and apps, built to spec', 'DevOps, CI/CD, and cloud infrastructure', 'Architecture audits and technical strategy', 'Workflow automation and system integrations'], accent: 'border-obo-primary' },
-    { icon: GraduationCap, title: 'For Learners',   subtitle: 'From zero to your first (or next) offer',
+    { icon: GraduationCap, title: 'For Learners', subtitle: 'From zero to your first (or next) offer',
       description: '1:1 mentorship on real projects, not tutorials.',
       features: ['Direct 1:1 with a Fortune 500 engineer', 'Project-based learning, zero filler', 'Portfolio and interview prep', 'Career strategy and offer negotiation'], accent: 'border-obo-accent' },
-    { icon: Calendar,      title: 'Free Discovery Call', subtitle: '30 minutes, no pitch',
+    { icon: Calendar, title: 'Free Discovery Call', subtitle: '30 minutes, no pitch',
       description: 'Not sure where you fit? Start here.',
       features: ['Honest read on where you are', 'The 1–2 things actually blocking you', 'A personalized next-step plan', 'Zero pressure to buy anything'], accent: 'border-obo-beige', highlight: true },
   ];
