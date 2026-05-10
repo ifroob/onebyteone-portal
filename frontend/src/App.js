@@ -170,9 +170,6 @@ const IntroSlide = ({ goToSlide }) => (
         Real engineering,<br />
         <span className="text-obo-primary">made approachable.</span>
       </h1>
-      <p className="text-sm sm:text-base lg:text-lg text-white/55 mb-3 max-w-2xl mx-auto leading-relaxed italic">
-        We're closing the understanding gap that the digital economy keeps widening.
-      </p>
       <p className="text-base sm:text-lg lg:text-xl text-white/75 mb-4 max-w-2xl mx-auto leading-relaxed">
         OneByteOne is a small tech studio that builds production software for businesses and trains the next wave of engineers.
       </p>
@@ -217,15 +214,12 @@ const MissionSlide = () => (
       <span className="text-obo-primary font-mono text-xs uppercase tracking-[0.3em]">
         // the.thesis
       </span>
-      <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-obo-dark mt-4 mb-6 leading-[1.08] tracking-tight">
+      <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-obo-dark mt-4 mb-10 leading-[1.08] tracking-tight">
         Most people think the digital divide is about{' '}
         <span className="text-gray-400 line-through decoration-2 decoration-obo-primary/60">access to technology</span>.
         <br className="hidden sm:block" />{' '}
         It's about <span className="text-obo-primary">understanding how modern systems actually work</span>.
       </h2>
-      <p className="text-gray-600 text-base sm:text-lg max-w-3xl leading-relaxed mb-12">
-        That single shift in framing changes everything we build, who we build it for, and how we teach it.
-      </p>
 
       {/* --- PROBLEM --- */}
       <div className="border-l-2 border-obo-primary/50 pl-5 mb-10">
@@ -234,7 +228,7 @@ const MissionSlide = () => (
           There's a growing gap between people who can <em>use</em> digital tools — and people who understand how those systems are built, automated, and scaled.
         </p>
         <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-          Businesses are still losing time and money to manual processes that could be automated. Most learners are either overwhelmed by tech or taught isolated skills with no sense of how they connect in the real world.
+          Businesses lose hours to manual work that should be automated. Learners drown in isolated skills with no sense of how the pieces connect.
         </p>
       </div>
 
@@ -248,13 +242,13 @@ const MissionSlide = () => (
           <div className="bg-white/60 border border-gray-200/70 rounded-xl p-4">
             <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-obo-primary mb-1.5">For businesses</p>
             <p className="text-gray-700 text-sm leading-relaxed">
-              We identify inefficiencies and build simple automation and digital systems that reduce manual work and sharpen operations.
+              We identify inefficiencies and build automation that reduces manual work and sharpens operations.
             </p>
           </div>
           <div className="bg-white/60 border border-gray-200/70 rounded-xl p-4">
             <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-obo-primary mb-1.5">For learners & career switchers</p>
             <p className="text-gray-700 text-sm leading-relaxed">
-              We break modern tech into practical, real-world understanding — how cloud, automation, and software actually work together. Not theory. Not syntax for the sake of it.
+              We break modern tech into practical, real-world understanding. Not theory. Not syntax for the sake of it.
             </p>
           </div>
         </div>
@@ -263,11 +257,8 @@ const MissionSlide = () => (
       {/* --- APPROACH --- */}
       <div className="border-l-2 border-obo-primary/50 pl-5 mb-10">
         <p className="text-obo-primary font-mono text-[11px] uppercase tracking-[0.2em] mb-2">// our approach</p>
-        <p className="text-obo-dark text-base sm:text-lg leading-relaxed font-medium mb-2">
-          We don't teach tech as isolated tools.
-        </p>
-        <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-          We teach how systems <em>connect</em> — how modern software, cloud platforms, and automation actually function in real production environments.
+        <p className="text-obo-dark text-base sm:text-lg leading-relaxed font-medium">
+          We don't teach tech as isolated tools. We teach how systems <em>connect</em> — how software, cloud, and automation actually work together in production.
         </p>
       </div>
 
@@ -275,7 +266,7 @@ const MissionSlide = () => (
       <div className="border-l-2 border-obo-primary/50 pl-5 mb-10">
         <p className="text-obo-primary font-mono text-[11px] uppercase tracking-[0.2em] mb-2">// long-term</p>
         <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-          The goal is simple: make technical understanding more accessible — especially for people who don't traditionally get exposure to it. Students, career switchers, and small businesses being left behind by rapid digital change.
+          Make technical understanding accessible to people who don't usually get it — students, career switchers, and small businesses being left behind by rapid digital change.
         </p>
       </div>
 
@@ -292,7 +283,14 @@ const MissionSlide = () => (
       </div>
 
       {/* --- LOCATION PILL --- */}
-      <div className="mt-10 inline-flex items-center gap-2 text-sm font-medium text-obo-dark bg-obo-surface px-4 py-2 rounded-full border border-obo-primary/20">
+      <div className="mt-10 mb-4">
+        <p className="text-obo-primary font-mono text-[10px] uppercase tracking-[0.3em] mb-2">// who we're really for</p>
+        <p className="text-obo-dark text-sm sm:text-base leading-relaxed max-w-2xl">
+          Built by a first-gen engineer, for the people the system tends to skip — and the businesses quietly hiring them.
+        </p>
+      </div>
+
+      <div className="inline-flex items-center gap-2 text-sm font-medium text-obo-dark bg-obo-surface px-4 py-2 rounded-full border border-obo-primary/20">
         <MapPin size={16} className="text-obo-primary" /> Fort Worth, TX · Working with clients and learners worldwide
       </div>
 
@@ -324,8 +322,11 @@ const ArchitectSlide = () => (
           <p className="text-white/80 text-lg leading-relaxed mb-4">
             8+ years across the stack — software engineering, DevOps, and cloud architecture — most of it inside <span className="font-semibold text-white">three Fortune 500</span> environments where downtime costs money and security isn't optional.
           </p>
-          <p className="text-white/65 leading-relaxed mb-6">
+          <p className="text-white/65 leading-relaxed mb-5">
             OneByteOne is that enterprise playbook, translated for the rest of us. Lean, fast builds for businesses. Honest, no-filler roadmaps for engineers. Plain language when you need it; technical depth when you don't.
+          </p>
+          <p className="text-white/70 leading-relaxed mb-6 border-l-2 border-obo-primary/60 pl-4 italic">
+            First-gen tech kid. I learned this stuff the hard way — without a network, without a roadmap, and without anyone at home who could translate it. OneByteOne exists so the next person doesn't have to.
           </p>
           <div className="grid grid-cols-3 gap-3 mb-6">
             <div className="bg-white/5 rounded-xl p-4 text-center border border-white/10">
@@ -373,7 +374,7 @@ const ProblemSlide = () => {
     {
       tag: '01',
       title: 'The First-Gen Gap',
-      intro: 'First-generation grads start with the same diploma but a smaller network and less inherited know-how — and the data shows it.',
+      intro: '',
       points: [
         { hl: 'Mobility Myth', stat: 'Pew', note: 'First-gen grads are far less likely to reach the top income quintile than peers with the same degree.' },
         { hl: 'Debt, No Degree-Match', stat: '−27%', note: 'First-gens carry higher debt and have a 27% lower chance of landing a degree-relevant job within 4 years. (NCES)' },
@@ -383,7 +384,7 @@ const ProblemSlide = () => {
     {
       tag: '02',
       title: 'Underemployment is the Rule',
-      intro: 'The standard college-to-career path is over-promising and under-delivering — and the longer you stay stuck, the harder it is to climb out.',
+      intro: '',
       points: [
         { hl: '52% Underemployed', stat: '52%', note: 'of recent grads are underemployed one year after graduation. (Burning Glass, 2024)' },
         { hl: 'The Stagnation Loop', stat: '70%', note: 'stuck in job #1 → 70% chance still underemployed five years later.' },
@@ -393,7 +394,7 @@ const ProblemSlide = () => {
     {
       tag: '03',
       title: 'Businesses Leak Time and Money',
-      intro: 'That\'s why our business track exists — to plug the leaks with software you actually own.',
+      intro: '',
       points: [
         { hl: 'Time Tax', stat: '~2h/day', note: 'the average employee loses about a quarter of the work week to manual, repeatable tasks. (WorkMarket)' },
         { hl: 'SaaS Bloat', stat: '$15K+/yr', note: 'average SMB software spend — and 38% of those subscriptions go unused. (BetterCloud)' },
@@ -427,12 +428,14 @@ const ProblemSlide = () => {
                 <span className="text-[10px] font-mono text-obo-primary tracking-[0.2em]">// {s.tag}</span>
                 <span className="flex-1 h-px bg-obo-primary/20" />
               </div>
-              <h3 className="text-sm sm:text-base font-bold text-obo-dark mb-1.5 leading-snug tracking-tight">
+              <h3 className="text-sm sm:text-base font-bold text-obo-dark mb-3 leading-snug tracking-tight">
                 {s.title}
               </h3>
-              <p className="text-[11px] sm:text-xs text-gray-600 leading-snug mb-3">
-                {s.intro}
-              </p>
+              {s.intro && (
+                <p className="text-[11px] sm:text-xs text-gray-600 leading-snug mb-3">
+                  {s.intro}
+                </p>
+              )}
               <ul className="space-y-2">
                 {s.points.map((p, i) => (
                   <li key={i} className="border-l-2 border-obo-primary/60 pl-2.5">
@@ -459,7 +462,7 @@ const ProblemSlide = () => {
             // our solution
           </p>
           <p className="text-sm sm:text-lg text-obo-dark font-semibold leading-snug">
-            We're not here to patch the system. We're here to rewrite it — with practical skills, real projects, and engineers who've actually shipped production code.
+            We're not here to patch the system. We're here to rewrite it — starting with the people the old system was never built to serve. Practical skills. Real projects. Engineers who've shipped at scale and remember being on the other side of the door.
           </p>
         </div>
       </div>
